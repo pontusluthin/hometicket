@@ -1,0 +1,183 @@
+html, body {
+  width: 100%;
+  margin: 0 !important;
+  padding: 0 !important; }
+
+.mainHeader {
+  width: 101.5%;
+  height: 5em;
+  background-color: #353535;
+  position: fixed; }
+
+.logo {
+  height: 6em;
+  width: 12em;
+  position: absolute;
+  left: 0;
+  margin-left: 7em;
+  margin-top: 1em; }
+
+.mainNav a {
+  text-decoration: none !important;
+  cursor: pointer;
+  color: white;
+  font-size: 1.5em;
+  font-family: 'Staatliches', cursive; }
+.mainNav .textLinks {
+  margin-left: 1em;
+  margin-right: 1em; }
+.mainNav .cartLink {
+  margin-right: -13em; }
+.mainNav .magnifierLink {
+  margin-left: 10rem; }
+.mainNav .cartImg, .mainNav .magnifierImg, .mainNav .favoriteImg {
+  height: 1em;
+  width: 1em;
+  margin-left: 0.4em !important;
+  margin-right: 0.4em !important; }
+.mainNav a > img:hover {
+  opacity: 0.7; }
+
+main {
+  height: 60em;
+  background-color: whitesmoke;
+  width: 100%; }
+
+.moreAboutInfo {
+  height: 30em;
+  width: 100%;
+  background: url("../img/concert.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center; }
+  .moreAboutInfo div {
+    background-color: rgba(255, 255, 255, 0.65);
+    border-radius: 0.2em;
+    padding: 0.4em;
+    color: black;
+    text-align: center;
+    width: 98%;
+    height: 90%;
+    font-family: 'Staatliches', cursive; }
+    .moreAboutInfo div h2 {
+      font-size: 3em; }
+    .moreAboutInfo div p {
+      font-size: 1.7em; }
+    .moreAboutInfo div form {
+      padding-top: 3em; }
+      .moreAboutInfo div form input {
+        outline: none;
+        border: none;
+        padding: 0.5em 2em 0.5em;
+        font-family: 'Poppins', sans-serif; }
+      .moreAboutInfo div form button {
+        background-color: #407dbe;
+        border: none;
+        padding: 0.5em 1em 0.5em;
+        margin-left: 1em; }
+      .moreAboutInfo div form button:hover {
+        background-color: whitesmoke;
+        -webkit-transition: 0.5s;
+        transition: 0.5s; }
+    .moreAboutInfo div section {
+      margin-top: 2em;
+      margin-bottom: 1em; }
+      .moreAboutInfo div section a img {
+        height: 2em;
+        width: 2em;
+        margin-left: 0.2em;
+        margin-right: 0.2em; }
+      .moreAboutInfo div section a img:hover {
+        opacity: 0.7; }
+    .moreAboutInfo div a {
+      text-decoration: none;
+      font-size: 1.5em;
+      color: #407dbe; }
+    .moreAboutInfo div a:hover {
+      opacity: 0.7; }
+
+.mainFooterMenu {
+  height: 25em;
+  background-color: #407dbe;
+  width: 100%; }
+  .mainFooterMenu h2 {
+    font-family: 'Staatliches', cursive;
+    font-size: 2.5em;
+    color: white; }
+  .mainFooterMenu .grid {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto; }
+  .mainFooterMenu .category {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 1em;
+    padding-left: 2em;
+    padding-right: 2em; }
+    .mainFooterMenu .category h3 {
+      color: white;
+      font-size: 1.5em; }
+    .mainFooterMenu .category a {
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1em;
+      text-decoration: none; }
+      .mainFooterMenu .category a span {
+        margin-right: 0.2em; }
+    .mainFooterMenu .category a:hover {
+      color: black; }
+
+.footerInfo {
+  height: 15em;
+  background-color: whitesmoke;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+  .footerInfo .footerInfo-item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-top: 2em;
+    margin-left: 1em; }
+    .footerInfo .footerInfo-item h3 {
+      font-family: 'Staatliches', cursive;
+      font-size: 1.5em; }
+    .footerInfo .footerInfo-item a {
+      text-decoration: none;
+      color: black;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9em; }
+      .footerInfo .footerInfo-item a span {
+        margin-right: 1em; }
+    .footerInfo .footerInfo-item a:hover {
+      opacity: 0.7; }
+  .footerInfo .story {
+    width: 30%; }
+    .footerInfo .story img {
+      height: 5em;
+      width: 10em;
+      margin-top: -1em; }
+
+.copyright {
+  text-align: center;
+  background-color: whitesmoke;
+  margin-bottom: 0; }
+  .copyright a {
+    text-decoration: none;
+    color: black; }

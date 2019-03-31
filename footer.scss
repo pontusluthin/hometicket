@@ -1,0 +1,193 @@
+
+.moreAboutInfo{
+    height: 30em;
+    width: 100%;
+    background: url('../img/concert.jpg');
+    background-size:     cover;                     
+    background-repeat:   no-repeat;
+    background-position: center center;     
+            
+            div{
+                background-color: rgba(255,255,255,0.65);
+                border-radius: 0.2em;
+                padding: 0.4em;
+                color: black;
+                //mix-blend-mode: screen;
+                text-align: center;
+                width: 98%;
+                height: 90%;              
+                font-family: 'Staatliches', cursive;  
+
+                    h2{
+                        font-size: 3em;
+                    }
+
+                    p{
+                        font-size: 1.7em;
+                    }
+
+                    form{
+                        padding-top: 3em;
+
+                            input{
+                                outline: none;
+                                border: none;
+                                padding: 0.5em 2em 0.5em;
+                                font-family: 'Poppins', sans-serif;
+                            }
+                            button{
+                                background-color: #407dbe;
+                                border: none;
+                                padding: 0.5em 1em 0.5em;
+                                margin-left: 1em;
+
+                            }
+
+                            button:hover{
+                                background-color: whitesmoke;
+                                transition: 0.5s;
+                            }
+                    }
+
+                    section{
+
+                        margin-top: 2em;
+                        margin-bottom: 1em;
+
+                            a{
+        
+                                    img{
+                                        height: 2em;
+                                        width: 2em;
+                                        margin-left: 0.2em;
+                                        margin-right: 0.2em;
+                                    }
+
+                                    img:hover{
+                                        opacity: 0.7;
+                                    }
+                            }
+
+                    }
+
+                    a{
+                        text-decoration: none;
+                        font-size: 1.5em;
+                        color: #407dbe;
+                    }
+
+                    a:hover{
+                        opacity: 0.7;
+                }
+            }
+
+          
+}
+
+.mainFooterMenu{
+    height: 25em;
+    background-color: #407dbe;
+    width: 100%;
+
+        h2{
+            font-family: 'Staatliches', cursive; 
+            font-size: 2.5em;
+            color: white;
+        }
+
+        .grid{
+            display: grid;
+            grid-template-columns: auto auto auto auto auto;
+        }
+
+        
+
+        .category{
+            display: flex; 
+            flex-direction: column; 
+            padding: 1em;
+            padding-left: 2em;
+            padding-right: 2em;
+                h3{
+                    color: white;
+                    font-size: 1.5em;
+
+                }
+
+                a{
+                    color: white;
+                    font-family: 'Poppins', sans-serif;
+                    font-size: 1em;
+                    text-decoration: none;
+        
+                        span{
+                            margin-right: 0.2em; 
+                        }
+                }
+                   
+                a:hover{
+                   color: black;
+                    
+                }
+        }
+
+       
+}
+
+.footerInfo{
+    height: 15em;
+    background-color: whitesmoke;
+    width: 100%;
+   display: flex; 
+   flex-direction: row;
+   justify-content: center;
+   
+        .footerInfo-item{
+            display: flex; 
+            flex-direction: column;
+            margin-top: 2em;
+            margin-left: 1em; 
+
+                h3{
+                    font-family: 'Staatliches', cursive; 
+                    font-size: 1.5em;
+
+                }
+
+                a{
+                    text-decoration: none;
+                    color: black;
+                    font-family: 'Poppins', sans-serif;
+                    font-size: 0.9em;
+
+                        span{
+                            margin-right: 1em;
+                        }
+                        
+                }
+                a:hover{
+                    opacity: 0.7;
+                }
+
+        }
+
+        .story{
+            width: 30%;
+                img{
+                    height: 5em;
+                    width: 10em;
+                    margin-top: -1em;
+                }
+               
+        }
+}
+
+.copyright{
+    text-align: center;
+    background-color: whitesmoke;
+    margin-bottom: 0;
+        a{
+            text-decoration: none;
+            color: black;
+        }
+}
