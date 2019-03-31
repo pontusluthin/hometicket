@@ -1,10 +1,10 @@
-
 <?php
+
 
 class DBConnect {
     private $host = "localhost";
-    private $database   = "";
-    private $username = "";
+    private $database   = "hometicket";
+    private $username = "root";
     private $password = "";
     private $charset = "utf8mb4";
     public $pdo;
@@ -19,4 +19,4 @@ class DBConnect {
         }
     }
 
-}?>
+}
