@@ -33,4 +33,27 @@ class Events{
             
         }
 
+        public function insert($fields){
+
+                //Insert new data into events
+                //"INSERT INTO Events (eventTitle, eventImg, eventInfo, eventPrice) VALUES (:eventTitle, :eventImg, :eventInfo, :eventPrice)";
+
+            $implodeColumns = implode(',', array_keys($fields));
+            $implodePlaceholder = implode(", :", array_keys($fields));
+
+            $sql = "INSERT INTO Events ($implodeColumns) VALUES (:".$implodePlaceholder.")";
+
+            $stmt = $this->db->prepare($sql);
+
+                foreach($fields as $key => $value){
+                    $stmt->bindValue(':'.$key,$value); 
+                }
+
+            $stmtExec = $stmt->execute(); 
+
+                if($stmtExec){
+                    header('Location: eventDisplay.php '); 
+                    
+                }
+        }
 } 
