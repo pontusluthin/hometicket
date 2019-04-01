@@ -68,7 +68,7 @@ if(isset($_POST['submit'])){
                                 <div class="jumbotron">
                                         <h3>Edit events</h3>
 
-                                        <form action="" method="post">
+                                        <form action="" method="post" enctype="multipart/form-data">
                                                 <input type="hidden" name="id" value="<?php echo $result['eventId'];?>">
                                                 <div class="form-group">
                                                         <label for="eventTitle">Event Title</label>

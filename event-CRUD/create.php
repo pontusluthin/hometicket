@@ -57,7 +57,7 @@ if(isset($_POST['submit'])){
                                 <div class="jumbotron">
                                         <h3>Add Events</h3>
 
-                                        <form action="" method="post">
+                                        <form action="" method="post" enctype="multipart/form-data">
                                                 <div class="form-group">
                                                         <label for="eventTitle">Event Title</label>
                                                         <input type="text" class="form-control" name="eventTitle" placeholder="Enter Event Title">

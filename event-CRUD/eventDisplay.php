@@ -3,6 +3,12 @@ function __autoload($class){
         require_once "$class.php";  
 }
 
+if(isset($_GET['del'])){
+        $id = $_GET['del'];
+
+        $delete = new Events(); 
+        $delete->delete($id);
+}
 
 ?>
 <!DOCTYPE html>
@@ -38,7 +44,7 @@ function __autoload($class){
                         <div class="row">
                                 <div class="jumbotron">
                                     <h3>All events</h3>
-
+                                    <a class="btn btn-sm btn-primary" href="create.php">Insert new event</a>
                                     <table class="table">
                                             <thead>
                                                     <tr>
@@ -66,7 +72,7 @@ function __autoload($class){
                                                                 <td><?php echo $row['eventImg'];?></td>
                                                                 <td><?php echo $row['eventInfo'];?></td>
                                                                 <td><?php echo $row['eventPrice'];?></td>
-                                                                <td><a class="btn btn-sm btn-primary" href="edit.php?id=<?php echo $row['eventId'];?>">Edit</a> &nbsp; <a class="btn btn-sm btn-danger" href="">Delete</a></td>
+                                                                <td><a class="btn btn-sm btn-primary" href="edit.php?id=<?php echo $row['eventId'];?>">Edit</a> &nbsp; <a class="btn btn-sm btn-danger" href="eventDisplay.php?del=<?php echo $row['eventId'];?>">Delete</a></td>
                                                         </tr>
 
                                                         <?php

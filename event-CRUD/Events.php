@@ -105,4 +105,12 @@ class Events{
             }
 
         }
+
+        public function delete ($id){
+            $sql = "DELETE FROM Events WHERE eventId = :eventId";
+
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindValue(":eventId", $id);
+            $stmt->execute();  
+        }
 } 
