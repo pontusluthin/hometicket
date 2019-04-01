@@ -181,3 +181,10 @@ main {
   .copyright a {
     text-decoration: none;
     color: black; }
+
+.event-design {
+  padding: 2em;
+  margin-top: -15em; }
+  .event-design div {
+    margin-bottom: 0.5em;
+    margin-top: 1em; }
