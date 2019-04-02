@@ -35,9 +35,9 @@ function __autoload($class){
 
         <main class="d-flex justify-content-center align-items-center">
        
-                               
+                   
 
-
+                        <div class="gridMain">
                         <?php
                                 $events = new ShowEvents(); 
 
@@ -45,20 +45,23 @@ function __autoload($class){
                                 
                                 foreach($rows as $row){
                         ?>
-                        <div class="grid">
+                        
                                 <section class="event-design">
-                                <div><?php echo $row['eventTitle'];?></div>
-                                <div><img src="http://localhost/hometicket/event-CRUD/images/<?php echo $row['eventImg'];?>"/>
+                                <div class="eventTitle"><?php echo $row['eventTitle'];?></div>
+                                <div>
+                                        <img 
+                                        src="http:\\localhost\hometicket\event-CRUD\images\<?php echo $row["eventImg"];?>"
+                                        />
                                 </div>
-                                <div><?php echo $row['eventPrice'];?></div>
-                                
+                                <div class="eventPrice"><?php echo $row['eventPrice'];?></div>
+                                <button class="buyButton">BUY</button>
                                 </section>
-                        </div>
+                        
 
                         <?php
                         }
                         ?>
-                        <img src="event-CRUD/images/metallica.jpg" alt="">
+                     </div>
         </main>
         
 
