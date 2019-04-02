@@ -42,8 +42,10 @@ function __autoload($class){
                                 $events = new ShowEvents(); 
 
                                 $rows = $events->select();
-                                
+                                $i = 0;
                                 foreach($rows as $row){
+                                //Function that only let 8 events to be displayed on the startpage         
+                                if ($i == 8) { break; }
                         ?>
                         
                                 <section class="event-design">
@@ -59,6 +61,7 @@ function __autoload($class){
                         
 
                         <?php
+                        $i++;
                         }
                         ?>
                      </div>
