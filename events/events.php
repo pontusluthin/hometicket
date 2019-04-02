@@ -33,7 +33,7 @@ function __autoload($class){
                 </nav>
         </header>
                 <h1 class="mainTitle">ALL EVENTS</h1>
-        <main class="d-flex justify-content-center align-items-center">
+        <main class="d-flex justify-content-center align-items-center mainAllEvents">
        
                         
 
@@ -42,7 +42,7 @@ function __autoload($class){
                                 $events = new ShowAllEvents(); 
 
                                 $rows = $events->select();
-                                $i = 0;
+                                
                                 foreach($rows as $row){
                                 //Function that only let 8 events to be displayed on the startpage         
                                 
@@ -52,7 +52,7 @@ function __autoload($class){
                                 <div class="eventTitle"><?php echo $row['eventTitle'];?></div>
                                 <div>
                                         <img 
-                                        src="http:\\localhost\hometicket\event-CRUD\images\<?php echo $row["eventImg"];?>"
+                                        src="<?php echo $row["eventImg"];?>"
                                         />
                                 </div>
                                 <div class="eventPrice"><?php echo $row['eventPrice'];?></div>

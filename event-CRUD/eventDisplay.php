@@ -39,7 +39,7 @@ if(isset($_GET['del'])){
                 </nav>
         </header>
 
-        <main class="d-flex  justify-content-center align-items-center">
+        <main class="d-flex  justify-content-center align-items-center eventDisplayMain">
                 <div class="container mt-4">
                         <div class="row">
                                 <div class="jumbotron">

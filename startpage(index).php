@@ -52,7 +52,7 @@ function __autoload($class){
                                 <div class="eventTitle"><?php echo $row['eventTitle'];?></div>
                                 <div>
                                         <img 
-                                        src="http:\\localhost\hometicket\event-CRUD\images\<?php echo $row["eventImg"];?>"
+                                        src="<?php echo $row["eventImg"];?>"
                                         />
                                 </div>
                                 <div class="eventPrice"><?php echo $row['eventPrice'];?></div>
