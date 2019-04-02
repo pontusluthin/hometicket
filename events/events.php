@@ -14,38 +14,38 @@ function __autoload($class){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>HomeTicket - Events for all</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/main.css">
     <script src="main.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
 
         <header class="mainHeader d-flex justify-content-center row align-items-center">
-                <img class="logo" src="img/hometicketLogo.png" alt="">
+                <img class="logo" src="../img/hometicketLogo.png" alt="">
                 <nav class="mainNav d-flex justify-content-center">
-                        <a href="#" class="textLinks">Home</a>
-                        <a href="events/events.php" class="textLinks">Events</a>
+                        <a href="../startpage(index).php" class="textLinks">Home</a>
+                        <a href="events.php" class="textLinks">Events</a>
                         <a href="#" class="textLinks">About</a>
                         <a href="validate.html">Validate/Show ticket</a>
-                        <a href="#" class="magnifierLink"><img src="img/magnifier.png" class="magnifierImg" alt=""></a>
-                        <a href="#" class="favoriteLink"><img src="img/favorite-heart-button.png" class="favoriteImg" alt=""></a>
-                        <a href="#" class="cartLink"><img src="img/cart-icon.png" class="cartImg" alt=""></a>
+                        <a href="#" class="magnifierLink"><img src="../img/magnifier.png" class="magnifierImg" alt=""></a>
+                        <a href="#" class="favoriteLink"><img src="../img/favorite-heart-button.png" class="favoriteImg" alt=""></a>
+                        <a href="#" class="cartLink"><img src="../img/cart-icon.png" class="cartImg" alt=""></a>
                 </nav>
         </header>
-
+                <h1 class="mainTitle">ALL EVENTS</h1>
         <main class="d-flex justify-content-center align-items-center">
        
-                   
+                        
 
                         <div class="gridMain">
                         <?php
-                                $events = new ShowEvents(); 
+                                $events = new ShowAllEvents(); 
 
                                 $rows = $events->select();
                                 $i = 0;
                                 foreach($rows as $row){
                                 //Function that only let 8 events to be displayed on the startpage         
-                                if ($i == 8) { break; }
+                                
                         ?>
                         
                                 <section class="event-design">
@@ -61,7 +61,7 @@ function __autoload($class){
                         
 
                         <?php
-                        $i++;
+                       
                         }
                         ?>
                      </div>
@@ -79,10 +79,10 @@ function __autoload($class){
                                         <button type="submit">Subscribe</button>
                                 </form>
                                 <section>
-                                        <a href="#"><img src="img/facebook.png" alt=""></a>
-                                        <a href="#"><img src="img/instagram.png" alt=""></a>
-                                        <a href="#"><img src="img/youtube.png" alt=""></a>
-                                        <a href="#"><img src="img/linkedin.png" alt=""></a>
+                                        <a href="#"><img src="../img/facebook.png" alt=""></a>
+                                        <a href="#"><img src="../img/instagram.png" alt=""></a>
+                                        <a href="#"><img src="../img/youtube.png" alt=""></a>
+                                        <a href="#"><img src="../img/linkedin.png" alt=""></a>
                                 </section>
                                 <a href="#">#HomeTicket</a>
                         </div>
@@ -157,7 +157,7 @@ function __autoload($class){
                         <div class="footerInfo-item story">
                                 <h3>Our Story</h3>
                                 <p>HomeTicket was founded in the beginning of 2019 by a travelling entrepreneur. The traveller went to a couple of the biggest music shows and festivals in the world.</p>
-                                <img src="img/hometicket-black.png" alt="">
+                                <img src="../img/hometicket-black.png" alt="">
                         </div>
                         <div class="footerInfo-item">
                                 <h3>Help</h3>

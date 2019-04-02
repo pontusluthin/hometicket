@@ -177,6 +177,15 @@ html, body {
     text-decoration: none;
     color: black; }
 
+.mainTitle {
+  padding-top: 2em;
+  background-color: whitesmoke;
+  margin: 0;
+  margin-bottom: -1em;
+  text-align: center;
+  font-family: 'Staatliches', cursive;
+  font-size: 4em; }
+
 main {
   height: 73em;
   background-color: whitesmoke;
