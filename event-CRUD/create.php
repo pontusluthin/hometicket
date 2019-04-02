@@ -3,12 +3,22 @@ function __autoload($class){
         require_once "$class.php";  
 }
 
+
+echo realpath('images/'); 
+
 if(isset($_POST['submit'])){
 
+    $target_dir = "/htdocs/Coding/hometicket/event-CRUD/images/";
     $eventTitle = $_POST['eventTitle'];
-    $eventImg = $_POST['eventImg'];
+    $eventImg = $target_dir .basename($_FILES['eventImg']['name']);
     $eventInfo = $_POST['eventInfo'];
     $eventPrice = $_POST['eventPrice'];
+
+    if (move_uploaded_file($_FILES["eventImg"]["tmp_name"], $eventImg)) {
+        echo "The file ". basename( $_FILES["eventImg"]["name"]). " has been uploaded.";
+    } else {
+        echo "Sorry, there was an error uploading your file.";
+    }
 
     $fields = [
 
@@ -18,9 +28,13 @@ if(isset($_POST['submit'])){
         'eventPrice' =>$eventPrice, 
     ];
 
+  
+
     $events = new Events(); 
     $events->insert($fields); 
 }
+
+
 
 ?>
 <!DOCTYPE html>

@@ -48,17 +48,19 @@ function __autoload($class){
                         <div class="grid">
                                 <section class="event-design">
                                 <div><?php echo $row['eventTitle'];?></div>
-                                <div><img src="images/<?php  echo $row['eventImg']; ?>" width="200" height="300">
+                                <div><img src="http://localhost/hometicket/event-CRUD/images/<?php echo $row['eventImg'];?>"/>
                                 </div>
                                 <div><?php echo $row['eventPrice'];?></div>
+                                
                                 </section>
                         </div>
 
                         <?php
                         }
                         ?>
+                        <img src="event-CRUD/images/metallica.jpg" alt="">
         </main>
-
+        
 
         <footer class="mainFooter">
                 <section class="moreAboutInfo d-flex flex-column justify-content-center  align-items-center">
