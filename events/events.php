@@ -15,8 +15,8 @@ function __autoload($class){
     <title>HomeTicket - Events for all</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="../css/main.css">
-    <script src="main.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="../main.js"></script>
 </head>
 <body>
 
@@ -29,8 +29,11 @@ function __autoload($class){
                         <a href="validate.html">Validate/Show ticket</a>
                         <a href="#" class="magnifierLink"><img src="../img/magnifier.png" class="magnifierImg" alt=""></a>
                         <a href="#" class="favoriteLink"><img src="../img/favorite-heart-button.png" class="favoriteImg" alt=""></a>
-                        <a href="#" class="cartLink"><img src="../img/cart-icon.png" class="cartImg" alt=""></a>
+                        <a  id="cartBtn" class="cartLink"><img src="../img/cart-icon.png" class="cartImg" alt=""></a>
                 </nav>
+                <div id="myModal" class="modal">
+                <div id=cartInfo><span class="close">&times;</span>e</div>
+                </div>
         </header>
                 <h1 class="mainTitle">ALL EVENTS</h1>
         <main class="d-flex justify-content-center align-items-center mainAllEvents">
@@ -56,7 +59,7 @@ function __autoload($class){
                                         />
                                 </div>
                                 <div class="eventPrice"><?php echo $row['eventPrice'];?></div>
-                                <button class="buyButton">BUY</button>
+                                <button class="buyButton">BUY TICKETS</button>
                                 </section>
                         
 

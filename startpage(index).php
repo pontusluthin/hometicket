@@ -61,8 +61,8 @@ function __autoload($class){
                                         src="<?php echo $row["eventImg"];?>"
                                         />
                                 </div>
-                                <div class="eventPrice"><?php echo $row['eventPrice'];?></div>
-                                <button class="buyButton">BUY</button>
+                                <div class="eventPrice"> <?php echo $row['eventPrice'];?> SEK</div>
+                                <button class="buyButton">BUY TICKETS</button>
                                 </section>
                         
 

@@ -139,7 +139,7 @@ html, body {
 
 .mainFooterMenu {
   height: 25em;
-  background-color: #407dbe;
+  background-color: #6a6e74;
   width: 100%; }
   .mainFooterMenu h2 {
     font-family: 'Staatliches', cursive;
@@ -213,7 +213,7 @@ html, body {
     .footerInfo .story img {
       height: 5em;
       width: 10em;
-      margin-top: -1em; }
+      margin-top: 0em; }
 
 .copyright {
   text-align: center;
@@ -268,12 +268,15 @@ main {
           flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
-          align-items: center; }
+          align-items: center;
+  -webkit-box-shadow: 0.1em 0.3em 0.3em rgba(0, 0, 0, 0.1);
+          box-shadow: 0.1em 0.3em 0.3em rgba(0, 0, 0, 0.1); }
   .event-design div {
     margin-bottom: 0.5em; }
   .event-design .eventTitle {
     font-family: 'Staatliches', cursive;
-    font-size: 2em; }
+    font-size: 2em;
+    text-shadow: 0.02em 0.08em 0.1em rgba(0, 0, 0, 0.4); }
   .event-design .eventImg {
     height: 15em;
     width: 15em; }
@@ -281,9 +284,11 @@ main {
     font-size: 1.5em;
     font-family: 'Poppins', sans-serif; }
   .event-design .buyButton {
-    border: none;
-    background-color: #82ff8c;
+    border: 0.05em solid #1b1b1b;
     padding: 0.3em 2em 0.3em;
     border-radius: 0.2em; }
   .event-design .buyButton:hover {
-    opacity: 0.7; }
+    background-color: #1b1b1b;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    color: whitesmoke; }
