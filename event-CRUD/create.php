@@ -8,7 +8,7 @@ echo realpath('images/');
 
 if(isset($_POST['submit'])){
 
-    $target_dir = "/htdocs/Coding/hometicket/event-CRUD/images/";
+    $target_dir = "http://localhost/hometicket/event-CRUD/images/";
     $eventTitle = $_POST['eventTitle'];
     $eventImg = $target_dir .basename($_FILES['eventImg']['name']);
     $eventInfo = $_POST['eventInfo'];

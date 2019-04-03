@@ -8,7 +8,8 @@ function __autoload($class){
 <!DOCTYPE html>
 <html>
 <head>
-    
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
     <link href="https://fonts.googleapis.com/css?family=Staatliches" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
     <meta charset="utf-8">
@@ -20,7 +21,7 @@ function __autoload($class){
     <script src="main.js"></script>
 </head>
 <body>
-
+        
         <header class="mainHeader d-flex justify-content-center row align-items-center">
                 <img class="logo" src="img/hometicketLogo.png" alt="">
                 <nav class="mainNav d-flex justify-content-center">
@@ -34,11 +35,17 @@ function __autoload($class){
                 </nav>
 
                 <div id="myModal" class="modal">
-                <div id=cartInfo><span class="close">&times;</span>e</div>
+                <div id=cartInfo><span class="close">&times;</span>
+                <div class="cartTitle">Cart</div>
+
+                </div>
                 </div>
                
         </header>
 
+        <section class="searchField">
+                
+        </section>
         <main class="d-flex justify-content-center align-items-center">
        
                    
@@ -61,8 +68,8 @@ function __autoload($class){
                                         src="<?php echo $row["eventImg"];?>"
                                         />
                                 </div>
-                                <div class="eventPrice"> <?php echo $row['eventPrice'];?> SEK</div>
-                                <button class="buyButton">BUY TICKETS</button>
+                                <div class="eventPrice"> <span>From </span><?php echo $row['eventPrice'];?> SEK</div>
+                                <button id="buyButton" class="buyButton">BUY TICKETS</button>
                                 </section>
                         
 
@@ -186,7 +193,6 @@ function __autoload($class){
                 <p class="copyright">HomeTicket Sweden AB © 2019 | <a href="#">Terms</a> | <a href="#">Cookies</a> | <a href="#">About</a></p>
         </footer>
   
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
