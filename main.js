@@ -36,9 +36,14 @@ for (var i = 0; i < buyButton.length; i++) {
     self.addEventListener('click', function (event) {  
         // prevent browser's default action
         event.preventDefault();
-        console.log("Köpknapp fungerar"); 
-        // call your awesome function here
-        // 'this' refers to the current button on for loop
+        console.log("Köpnapp fungerar"); 
+        let eventTitle = document.querySelectorAll("eventTitle");
+        let eventPrice = document.querySelectorAll("eventPrice");
+
+        /*function moveToCart(this){
+          
+        }; */
+              // 'this' refers to the current button on for loop
     }, false);
 }
 

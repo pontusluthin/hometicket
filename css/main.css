@@ -288,7 +288,9 @@ main {
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-shadow: 0.1em 0.3em 0.3em rgba(0, 0, 0, 0.1);
-          box-shadow: 0.1em 0.3em 0.3em rgba(0, 0, 0, 0.1); }
+          box-shadow: 0.1em 0.3em 0.3em rgba(0, 0, 0, 0.1);
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out; }
   .event-design div {
     margin-bottom: 0.5em; }
   .event-design .eventTitle {
@@ -311,3 +313,7 @@ main {
     -webkit-transition: 0.5s;
     transition: 0.5s;
     color: whitesmoke; }
+
+.event-design:hover {
+  -webkit-box-shadow: 0 0.8em 2em 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0.8em 2em 0 rgba(0, 0, 0, 0.2); }

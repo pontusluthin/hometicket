@@ -49,7 +49,7 @@ main{
     flex-direction: column;
     align-items: center;
     box-shadow: 0.1em 0.3em 0.3em rgba(0, 0, 0, .1); 
-
+    transition: 0.5s ease-in-out;
             div{
                 margin-bottom: 0.5em;
                
@@ -85,4 +85,9 @@ main{
                 color: whitesmoke;
             }
 
+}
+
+.event-design:hover{
+    box-shadow: 0 0.8em 2em 0 rgba(0, 0, 0, 0.2); 
+    
 }
