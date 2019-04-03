@@ -274,6 +274,9 @@ main {
   .event-design .eventTitle {
     font-family: 'Staatliches', cursive;
     font-size: 2em; }
+  .event-design .eventImg {
+    height: 15em;
+    width: 15em; }
   .event-design .eventPrice {
     font-size: 1.5em;
     font-family: 'Poppins', sans-serif; }

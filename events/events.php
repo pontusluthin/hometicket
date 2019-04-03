@@ -51,7 +51,7 @@ function __autoload($class){
                                 <section class="event-design">
                                 <div class="eventTitle"><?php echo $row['eventTitle'];?></div>
                                 <div>
-                                        <img 
+                                        <img class="eventImg"
                                         src="<?php echo $row["eventImg"];?>"
                                         />
                                 </div>
