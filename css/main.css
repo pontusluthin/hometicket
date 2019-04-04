@@ -52,6 +52,14 @@ html, body {
   font-family: 'Staatliches', cursive;
   text-align: center; }
 
+.eventsInCart {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.8em !important;
+  margin-top: 0.2em; }
+
+.eventTitleCart {
+  margin-right: 4em; }
+
 .modal {
   display: none;
   /* Hidden by default */
@@ -293,6 +301,8 @@ main {
   transition: 0.5s ease-in-out; }
   .event-design div {
     margin-bottom: 0.5em; }
+  .event-design .eventId {
+    display: none; }
   .event-design .eventTitle {
     font-family: 'Staatliches', cursive;
     font-size: 2em;

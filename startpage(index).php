@@ -18,7 +18,7 @@ function __autoload($class){
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/main.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="main.js"></script>
+    
 </head>
 <body>
         
@@ -35,9 +35,14 @@ function __autoload($class){
                 </nav>
 
                 <div id="myModal" class="modal">
-                <div id=cartInfo><span class="close">&times;</span>
-                <div class="cartTitle">Cart</div>
-
+                <div id=cartInfo>
+                                
+                        <span class="close">&times;</span>
+                        <div class="cartTitle">Cart</div>
+                        <div class="eventsInCart d-flex flex-row container">
+                        <div class="eventTitleCart"></div>
+                        <div class="eventPriceCart"></div>
+                        </div>
                 </div>
                 </div>
                
@@ -55,20 +60,25 @@ function __autoload($class){
                                 $events = new ShowEvents(); 
 
                                 $rows = $events->select();
+                                $json = json_encode($rows);
+                                
                                 $i = 0;
                                 foreach($rows as $row){
                                 //Function that only let 8 events to be displayed on the startpage         
                                 if ($i == 8) { break; }
+                               
+                                
                         ?>
-                        
+                              
                                 <section class="event-design">
+                                <div class="eventId"><?php echo $row['eventId'];?></div>
                                 <div class="eventTitle"><?php echo $row['eventTitle'];?></div>
                                 <div>
                                         <img class="eventImg" 
                                         src="<?php echo $row["eventImg"];?>"
                                         />
                                 </div>
-                                <div class="eventPrice"> <span>From </span><?php echo $row['eventPrice'];?> SEK</div>
+                                <div class="eventPrice"> From <span class="eventPriceToCart"><?php echo $row['eventPrice'];?></span> SEK</div>
                                 <button id="buyButton" class="buyButton">BUY TICKETS</button>
                                 </section>
                         
@@ -192,7 +202,8 @@ function __autoload($class){
                 </section>
                 <p class="copyright">HomeTicket Sweden AB © 2019 | <a href="#">Terms</a> | <a href="#">Cookies</a> | <a href="#">About</a></p>
         </footer>
-  
+  <div id="jsonTest"></div>
+    <script src="main.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 

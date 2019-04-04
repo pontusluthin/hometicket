@@ -29,23 +29,72 @@ window.onclick = function(event) {
 }
 
 
-let buyButton = document.querySelectorAll(".buyButton");
-for (var i = 0; i < buyButton.length; i++) {
-    var self = buyButton[i];
+document.addEventListener("DOMContentLoaded", function(){
 
-    self.addEventListener('click', function (event) {  
-        // prevent browser's default action
-        event.preventDefault();
-        console.log("Köpnapp fungerar"); 
-        let eventTitle = document.querySelectorAll("eventTitle");
-        let eventPrice = document.querySelectorAll("eventPrice");
+  let eventId = document.querySelectorAll(".eventId");
+  let eventTitle = document.querySelectorAll(".eventTitle");
+  let eventPrice = document.querySelectorAll(".eventPrice");
+  let data = [{eventId}, {eventTitle}, {eventPrice}];
+  console.log(data); 
+  
 
-        /*function moveToCart(this){
+  
+  var myJSON = JSON.stringify(data);
+  console.log(myJSON); 
+
+  let buyButton = document.querySelectorAll(".buyButton")
+  buyButton.addEventListener("click", function(){
+
+    console.log(event);
+
+    let id = eventId; 
+
+    for( let i = 0; i < data.length; i++) {
+      console.log(data[i][id]); 
+    }
+
+  }); 
+ 
+
+});
+
+
+    
+      /*let buyButton = document.querySelectorAll(".buyButton");
+      for (var i = 0; i < buyButton.length; i++) {
+          var self = buyButton[i];
+      
+
+          self.addEventListener('click', function (event) {  
+              // prevent browser's default action
+            
+            
+              console.log(event.target.id);
+              let eventTitle = document.querySelectorAll(".eventTitle");
+              let eventPrice = document.querySelectorAll(".eventPriceToCart")*/
+
+              
           
-        }; */
-              // 'this' refers to the current button on for loop
-    }, false);
-}
+
+            /* for (var i = 0; i < eventTitle.length; i++){
+                let test = eventTitle[i];
+                if (i === 1) { break; }
+                test.style.display = 'none';
+              }
+
+              for (var i = 0; i < eventPrice.length; i++){
+                let test = eventPrice[i];
+                test.style.display = 'none';
+              }*/
+
+              /*function moveToCart(this){
+                
+                
+              }; */
+
+                    // 'this' refers to the current button on for loop
+         /* }, false);
+      }*/
 
 
 };
