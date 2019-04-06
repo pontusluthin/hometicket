@@ -72,13 +72,13 @@ function __autoload($class){
                               
                                 <section class="event-design">
                                 <div class="eventId"><?php echo $row['eventId'];?></div>
-                                <div class="eventTitle"><?php echo $row['eventTitle'];?></div>
+                                <div class="eventTitle arrayinfo"><?php echo $row['eventTitle'];?></div>
                                 <div>
                                         <img class="eventImg" 
                                         src="<?php echo $row["eventImg"];?>"
                                         />
                                 </div>
-                                <div class="eventPrice"> From <span class="eventPriceToCart"><?php echo $row['eventPrice'];?></span> SEK</div>
+                                <div class="eventPrice"> From <span class="eventPriceToCart arrayinfo"><?php echo $row['eventPrice'];?></span> SEK</div>
                                 <button id="buyButton" class="buyButton">BUY TICKETS</button>
                                 </section>
                         

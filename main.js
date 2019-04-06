@@ -60,41 +60,33 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
     
-      /*let buyButton = document.querySelectorAll(".buyButton");
+      let buyButton = document.querySelectorAll(".buyButton");
       for (var i = 0; i < buyButton.length; i++) {
           var self = buyButton[i];
-      
-
-          self.addEventListener('click', function (event) {  
-              // prevent browser's default action
-            
-            
-              console.log(event.target.id);
-              let eventTitle = document.querySelectorAll(".eventTitle");
-              let eventPrice = document.querySelectorAll(".eventPriceToCart")*/
-
-              
           
 
-            /* for (var i = 0; i < eventTitle.length; i++){
-                let test = eventTitle[i];
-                if (i === 1) { break; }
-                test.style.display = 'none';
-              }
+          
+          self.addEventListener('click', function (event) {  
 
-              for (var i = 0; i < eventPrice.length; i++){
-                let test = eventPrice[i];
-                test.style.display = 'none';
-              }*/
-
-              /*function moveToCart(this){
-                
-                
-              }; */
+            console.log(event);
+              // prevent browser's default action
+                  
+            
+          
+            let eventArray = document.querySelectorAll('.arrayinfo');
+         
+            for (var i = 0; i < eventArray.length; i++) {
+              console.log(this);
+          }
+            /*Array.from(eventArray).forEach(function(el) {
+              console.log(el);
+          });*/
+            
+           
 
                     // 'this' refers to the current button on for loop
-         /* }, false);
-      }*/
+          }, false);
+      }
 
 
 };
