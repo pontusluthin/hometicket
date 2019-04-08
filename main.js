@@ -29,7 +29,7 @@ window.onclick = function(event) {
 }
 
 
-document.addEventListener("DOMContentLoaded", function(){
+/*document.addEventListener("DOMContentLoaded", function(){
 
   let eventId = document.querySelectorAll(".eventId");
   let eventTitle = document.querySelectorAll(".eventTitle");
@@ -56,13 +56,15 @@ document.addEventListener("DOMContentLoaded", function(){
   }); 
  
 
-});
+});*/
 
 
-    
+
+     
+
       let buyButton = document.querySelectorAll(".buyButton");
-      for (var i = 0; i < buyButton.length; i++) {
-          var self = buyButton[i];
+      /*for (var i = 0; i < buyButton.length; i++) {
+          var self = buyButton[i];*/
           
 
           
@@ -72,21 +74,47 @@ document.addEventListener("DOMContentLoaded", function(){
               // prevent browser's default action
                   
             
+            
+                  
           
-            let eventArray = document.querySelectorAll('.arrayinfo');
+           let eventArray = document.querySelectorAll('.arrayinfo');
+
+
+           /*function findEvent(eventArray) {
+            if (eventArray.length > 0)
+             {
+               for (let i = 0; i < eventArray.length; i++) {
+                  if (("eventTitle" in eventArray[i]) && ("eventPrice" in eventArray[i]) && ("eventId" in eventArray[i])) {
+                    if (eventArray[i].eventId){  
+                       console.log(eventArray[i]);
+                    }            
+                    else  {
+                       return true;
+                    }
+                }
+               }
+              }
+             else
+               return null;
+            }*/
          
-            for (var i = 0; i < eventArray.length; i++) {
+
+
+
+         
+            /*for (var i = 0; i < eventArray.length; i++) {
+
               console.log(this);
-          }
-            /*Array.from(eventArray).forEach(function(el) {
+          }*/
+            Array.from(eventArray).forEach(function(el) {
               console.log(el);
-          });*/
+          });
             
            
 
                     // 'this' refers to the current button on for loop
-          }, false);
-      }
+        }, false);
+      /*}*/
 
 
 };
