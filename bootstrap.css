@@ -1,0 +1,45 @@
+
+.signupForm > input{
+ width: 80%;
+}
+
+.loginButton{
+    background-color: white; 
+    color: black;
+    border-color: black; 
+}
+
+.loginButton:hover{
+    background-color: black; 
+    color: white; 
+    border-color: black; 
+    transition: 0.5s;
+}
+
+.closeButton{
+    background-color: white; 
+    color: black;
+    border-color: black; 
+    
+}
+
+.closeButton:hover{
+    background-color: black; 
+    color: white; 
+    border-color: black; 
+    transition: 0.5s;
+}
+
+.signupLink{
+    text-decoration: none;
+    padding: 0.3em;
+    margin-bottom: 1em;
+    cursor: pointer;
+}
+
+.signupLink:hover{
+    outline: 0.1em solid black;
+    background-color: black;
+    color: white !important;
+    transition: 0.2s; 
+}

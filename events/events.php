@@ -17,24 +17,148 @@ function __autoload($class){
     <link rel="stylesheet" type="text/css" media="screen" href="../css/main.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="../main.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="../bootstrap.css">
 </head>
 <body>
 
+<!-- Modal Login form-->
+<div class="modal fade" id="loginmodal" tabindex="-1" role="dialog" aria-labelledby="loginmodal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog" role="document">
+    <div class="modal-content align-items-center">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Login</h5>
+        
+      </div>
+      <div class="modal-body">
+
+                <form action="">
+                        Username:<br>
+                        <input type="text"><br>
+                        Password:<br>
+                        <input type="password">
+                </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary closeButton" data-dismiss="modal">Close</button>
+        <input type="submit" class="btn btn-primary loginButton" value="Login">
+      </div>
+      <a class="signupLink" data-toggle="modal" data-target="#signup">Create new user</a>
+      <a class="signupLink" data-toggle="modal" data-target="#adminlogin" >Login Admin</a>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="adminlogin" tabindex="-1" role="dialog" aria-labelledby="adminlogin" aria-hidden="true">
+  <div class="modal-dialog modal-dialog" role="document">
+    <div class="modal-content align-items-center">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Login</h5>
+        
+      </div>
+      <div class="modal-body">
+
+                <form action="">
+                        Admin Username:<br>
+                        <input type="text"><br>
+                        Admin Password:<br>
+                        <input type="password">
+                </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary closeButton" data-dismiss="modal">Close</button>
+        <input type="submit" class="btn btn-primary loginButton" value="Login">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="signup" aria-hidden="true">
+  <div class="modal-dialog modal-dialog" role="document">
+    <div class="modal-content align-items-center">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Signup</h5>
+        
+      </div>
+      <div class="modal-body">
+
+                <form  class="signupForm" action="">
+                        First Name <br>
+                        <input type="text"><br>
+                        Last Name <br>
+                        <input type="text"><br>
+                        Address <br>
+                        <input type="text"><br>
+                        ZIP Code <br>
+                        <input type="text"><br>
+                        City <br>
+                        <input type="text"><br>
+                        Email <br>
+                        <input type="text"><br>
+                        Phone <br>
+                        <input type="text"><br>
+                        Username:<br>
+                        <input type="text"><br>
+                        Password:<br>
+                        <input type="password"><br>
+                        Agreed to our terms and conditions: 
+                        <input type="checkbox">
+                </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary closeButton" data-dismiss="modal">Close</button>
+        <input type="submit" class="btn btn-primary loginButton" value="Signup">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Shopping cart-->
+<div class="modal fade" id="shoppingcartmodal" tabindex="-1" role="dialog" aria-labelledby="shoppingcartmodal" aria-hidden="true">
+  <div class="modal-dialog" role="document" style="    margin: 0;
+    float: right;
+    width: 25%;
+    margin-right: 2em;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Shopping cart</h5>
+        
+      </div>
+      <div class="modal-body">
+
+               
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary closeButton" data-dismiss="modal">Close</button>
+        <input type="submit" class="btn btn-primary loginButton" value="Checkout">
+      </div>
+    </div>
+  </div>
+</div>
+        
         <header class="mainHeader d-flex justify-content-center row align-items-center">
                 <img class="logo" src="../img/hometicketLogo.png" alt="">
                 <nav class="mainNav d-flex justify-content-center">
                         <a href="../startpage(index).php" class="textLinks">Home</a>
-                        <a href="events.php" class="textLinks">Events</a>
+                        <a href="events/events.php" class="textLinks">Events</a>
+                        <a  href="#" data-toggle="modal" data-target="#loginmodal">Login/Create account</a>
                         <a href="#" class="textLinks">About</a>
                         <a href="validate.html">Validate/Show ticket</a>
                         <a href="#" class="magnifierLink"><img src="../img/magnifier.png" class="magnifierImg" alt=""></a>
-                        <a href="#" class="favoriteLink"><img src="../img/favorite-heart-button.png" class="favoriteImg" alt=""></a>
-                        <a  id="cartBtn" class="cartLink"><img src="../img/cart-icon.png" class="cartImg" alt=""></a>
+                        <a href="#"  class="favoriteLink"><img src="../img/favorite-heart-button.png" class="favoriteImg" alt=""></a>
+                        <a  id="cartBtn" class="cartLink" data-toggle="modal" data-target="#shoppingcartmodal"><img src="../img/cart-icon.png" class="cartImg" alt=""></a>
                 </nav>
-                <div id="myModal" class="modal">
-                <div id=cartInfo><span class="close">&times;</span>e</div>
-                </div>
+
+                <!-- Button trigger modal -->
+
+
+
+               
+               
         </header>
+
                 <h1 class="mainTitle">ALL EVENTS</h1>
         <main class="d-flex justify-content-center align-items-center mainAllEvents">
        
