@@ -1,103 +1,59 @@
 
 window.onload = function(){ 
 
+
+  let buyButton = document.querySelectorAll(".buyButton");
+      for (var i = 0; i < buyButton.length; i++) {
+          var self = buyButton[i];
+          
+   
+
+          
+          self.addEventListener('click', function (event) { 
+             
+            let id = parseInt(this.id.substring(10));//syftar till this button som är klickad att den då hämtar den knappens data. 
+            console.log(id);
+       
+                  
+            let json = JSON.parse(document.getElementById("json_data").innerHTML);
+
+            for (let i = 0; i < json.length; i++) {
+              if(json[i]["eventId"] == id) {
+                let title = json[i]["eventTitle"];
+                let price = json[i]["eventPrice"];
+              
+
+                let addedEvent = document.createElement("DIV");
+                addedEvent.innerHTML = title;  
+                document.getElementById("eventAdd").appendChild(addedEvent);   
+
+                let addedPrice = document.createElement("DIV");
+                addedPrice.innerHTML = price;  
+                document.getElementById("eventAdd").appendChild(addedPrice);  
+                
+                
+
+
+              }
+            }
+
+
+        }, false);
+      }
+
+
+  
+
+
   $('#myModal').on('shown.bs.modal', function () {
     $('#myInput').trigger('focus')
   })
 
 
 
-
-
-
-  
-/*document.addEventListener("DOMContentLoaded", function(){
-
-  let eventId = document.querySelectorAll(".eventId");
-  let eventTitle = document.querySelectorAll(".eventTitle");
-  let eventPrice = document.querySelectorAll(".eventPrice");
-  let data = [{eventId}, {eventTitle}, {eventPrice}];
-  console.log(data); 
-  
-
-  
-  var myJSON = JSON.stringify(data);
-  console.log(myJSON); 
-
-  let buyButton = document.querySelectorAll(".buyButton")
-  buyButton.addEventListener("click", function(){
-
-    console.log(event);
-
-    let id = eventId; 
-
-    for( let i = 0; i < data.length; i++) {
-      console.log(data[i][id]); 
-    }
-
-  }); 
- 
-
-});*/
-
-
-
      
 
-      let buyButton = document.querySelectorAll(".buyButton");
-      /*for (var i = 0; i < buyButton.length; i++) {
-          var self = buyButton[i];*/
-          
-
-          
-          self.addEventListener('click', function (event) {  
-
-            console.log(event);
-              // prevent browser's default action
-                  
-            
-            
-                  
-          
-           let eventArray = document.querySelectorAll('.arrayinfo');
-
-
-           /*function findEvent(eventArray) {
-            if (eventArray.length > 0)
-             {
-               for (let i = 0; i < eventArray.length; i++) {
-                  if (("eventTitle" in eventArray[i]) && ("eventPrice" in eventArray[i]) && ("eventId" in eventArray[i])) {
-                    if (eventArray[i].eventId){  
-                       console.log(eventArray[i]);
-                    }            
-                    else  {
-                       return true;
-                    }
-                }
-               }
-              }
-             else
-               return null;
-            }*/
-         
-
-
-
-         
-            /*for (var i = 0; i < eventArray.length; i++) {
-
-              console.log(this);
-          }*/
-            Array.from(eventArray).forEach(function(el) {
-              console.log(el);
-          });
-            
-           
-
-                    // 'this' refers to the current button on for loop
-        }, false);
-      /*}*/
-
+      
 
 };
 

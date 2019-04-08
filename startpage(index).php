@@ -121,15 +121,16 @@ function __autoload($class){
   <div class="modal-dialog" role="document" style="    margin: 0;
     float: right;
     width: 25%;
-    margin-right: 2em;">
+    margin-right: 2em;
+    margin-top: 6em;">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalCenterTitle">Shopping cart</h5>
         
       </div>
-      <div class="modal-body">
+      <div class="modal-body" id="eventAdd">
 
-               
+        
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary closeButton" data-dismiss="modal">Close</button>
@@ -183,15 +184,15 @@ function __autoload($class){
                         ?>
                               
                                 <section class="event-design">
-                                <div class="eventId"><?php echo $row['eventId'];?></div>
-                                <div class="eventTitle arrayinfo"><?php echo $row['eventTitle'];?></div>
-                                <div>
-                                        <img class="eventImg" 
-                                        src="<?php echo $row["eventImg"];?>"
-                                        />
-                                </div>
-                                <div class="eventPrice"> From <span class="eventPriceToCart arrayinfo"><?php echo $row['eventPrice'];?></span> SEK</div>
-                                <button id="buyButton" class="buyButton">BUY TICKETS</button>
+                                        <div class="eventId"><?php echo $row['eventId'];?></div>
+                                        <div class="eventTitle arrayinfo"><?php echo $row['eventTitle'];?></div>
+                                        <div>
+                                                <img class="eventImg" 
+                                                src="<?php echo $row["eventImg"];?>"
+                                                />
+                                        </div>
+                                        <div class="eventPrice"> From <span class="eventPriceToCart arrayinfo"><?php echo $row['eventPrice'];?></span> SEK</div>
+                                        <button id="buyButton_<?php echo $row['eventId']; ?>" class="buyButton">BUY TICKETS</button>
                                 </section>
                         
 
@@ -199,6 +200,8 @@ function __autoload($class){
                         $i++;
                         }
                         ?>
+
+                       <textarea name="" id="json_data" cols="30" rows="10"><?php echo $json?></textarea>
                      </div>
 
                      

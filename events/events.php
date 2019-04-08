@@ -142,7 +142,7 @@ function __autoload($class){
                 <img class="logo" src="../img/hometicketLogo.png" alt="">
                 <nav class="mainNav d-flex justify-content-center">
                         <a href="../startpage(index).php" class="textLinks">Home</a>
-                        <a href="events/events.php" class="textLinks">Events</a>
+                        <a href="events.php" class="textLinks">Events</a>
                         <a  href="#" data-toggle="modal" data-target="#loginmodal">Login/Create account</a>
                         <a href="#" class="textLinks">About</a>
                         <a href="validate.html">Validate/Show ticket</a>
