@@ -16,26 +16,47 @@ window.onload = function(){
        
                   
             let json = JSON.parse(document.getElementById("json_data").innerHTML);
+         
 
             for (let i = 0; i < json.length; i++) {
               if(json[i]["eventId"] == id) {
+
+                
                 let title = json[i]["eventTitle"];
                 let price = json[i]["eventPrice"];
-              
 
-                let addedEvent = document.createElement("DIV");
+
+                document.cookie = "title=" + JSON.stringify(title); 
+                document.cookie = "price=" + JSON.stringify(price); 
+
+
+                alert(document.cookie);
+
+                /*location.reload(); */
+               
+
+
+                /*let addedEvent = document.createElement("DIV");
                 addedEvent.innerHTML = title;  
-                document.getElementById("eventAdd").appendChild(addedEvent);   
+                document.getElementById("eventAdd").appendChild(addedEvent); 
+
 
                 let addedPrice = document.createElement("DIV");
                 addedPrice.innerHTML = price;  
-                document.getElementById("eventAdd").appendChild(addedPrice);  
+                document.getElementById("eventAdd").appendChild(addedPrice); */
+               
                 
-                
+
+              
+             
 
 
               }
+
+              
             }
+
+          
 
 
         }, false);
