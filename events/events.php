@@ -1,7 +1,7 @@
 <?php
-function __autoload($class){
-        require_once "$class.php";  
-}
+
+include 'ShowAllEvents.php'; 
+
 
 
 ?>
@@ -21,27 +21,37 @@ function __autoload($class){
 </head>
 <body>
 
-<!-- Modal Login form-->
+<?php  
+                if(isset($message))  
+                {  
+                     echo '<label class="text-danger">'.$message.'</label>';  
+                }  
+        ?> 
+ 
+
+<!-- Customer modal login form-->
 <div class="modal fade" id="loginmodal" tabindex="-1" role="dialog" aria-labelledby="loginmodal" aria-hidden="true">
   <div class="modal-dialog modal-dialog" role="document">
     <div class="modal-content align-items-center">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalCenterTitle">Login</h5>
+       
         
       </div>
       <div class="modal-body">
 
-                <form action="">
+                <form action="" method="POST">
                         Username:<br>
-                        <input type="text"><br>
+                        <input type="text" name="username"><br>
                         Password:<br>
-                        <input type="password">
+                        <input type="password" name="password">
+
+                        <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary closeButton" data-dismiss="modal">Close</button>
+                                <input type="submit" class="btn btn-primary loginButton" value="Login" name="loginCustomerBtn">
+                        </div>
                 </form>
 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary closeButton" data-dismiss="modal">Close</button>
-        <input type="submit" class="btn btn-primary loginButton" value="Login">
       </div>
       <a class="signupLink" data-toggle="modal" data-target="#signup">Create new user</a>
       <a class="signupLink" data-toggle="modal" data-target="#adminlogin" >Login Admin</a>
@@ -83,52 +93,68 @@ function __autoload($class){
       </div>
       <div class="modal-body">
 
-                <form  class="signupForm" action="">
+
+                <?php if (isset($_SESSION['message'])):?>
+
+                <div class="alert alert-<?=$_SESSION['msg_type']?>">
+                <?php 
+                        echo $_SESSION['message'];
+                        unset($_SESSION['message']);
+                ?>
+                </div>
+                <?php endif ?>
+                
+                <form  class="signupForm" method="post">
                         First Name <br>
-                        <input type="text"><br>
+                        <input type="text" name="firstname"><br>
                         Last Name <br>
-                        <input type="text"><br>
+                        <input type="text" name="lastname"><br>
                         Address <br>
-                        <input type="text"><br>
+                        <input type="text" name="address"><br>
                         ZIP Code <br>
-                        <input type="text"><br>
+                        <input type="text" name="zip"><br>
                         City <br>
-                        <input type="text"><br>
+                        <input type="text" name="city"><br>
                         Email <br>
-                        <input type="text"><br>
+                        <input type="text" name="mail"><br>
                         Phone <br>
-                        <input type="text"><br>
+                        <input type="text" name="phone"><br>
                         Username:<br>
-                        <input type="text"><br>
+                        <input type="text" name="username" ><br>
                         Password:<br>
-                        <input type="password"><br>
-                        Agreed to our terms and conditions: 
-                        <input type="checkbox">
+                        <input type="password" name="password"><br>
+
+                        <div class="modal-footer">
+                        <input type="submit" class="btn btn-primary loginButton" value="Signup" name="signupCustomerBtn">
+                        <button type="button" class="btn btn-secondary closeButton" data-dismiss="modal">Close</button>
+                        </div>
+                       <!-- Agreed to our terms and conditions: 
+                        <input type="checkbox" name="customerAgree">-->
                 </form>
 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary closeButton" data-dismiss="modal">Close</button>
-        <input type="submit" class="btn btn-primary loginButton" value="Signup">
+               
+
       </div>
     </div>
   </div>
 </div>
+
 
 <!--Shopping cart-->
 <div class="modal fade" id="shoppingcartmodal" tabindex="-1" role="dialog" aria-labelledby="shoppingcartmodal" aria-hidden="true">
   <div class="modal-dialog" role="document" style="    margin: 0;
     float: right;
     width: 25%;
-    margin-right: 2em;">
+    margin-right: 2em;
+    margin-top: 6em;">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalCenterTitle">Shopping cart</h5>
         
       </div>
-      <div class="modal-body">
+      <div class="modal-body" id="eventAdd">
 
-               
+        
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary closeButton" data-dismiss="modal">Close</button>
@@ -145,7 +171,7 @@ function __autoload($class){
                         <a href="events.php" class="textLinks">Events</a>
                         <a  href="#" data-toggle="modal" data-target="#loginmodal">Login/Create account</a>
                         <a href="#" class="textLinks">About</a>
-                        <a href="validate.html">Validate/Show ticket</a>
+                        <a href="#">Validate/Show ticket</a>
                         <a href="#" class="magnifierLink"><img src="../img/magnifier.png" class="magnifierImg" alt=""></a>
                         <a href="#"  class="favoriteLink"><img src="../img/favorite-heart-button.png" class="favoriteImg" alt=""></a>
                         <a  id="cartBtn" class="cartLink" data-toggle="modal" data-target="#shoppingcartmodal"><img src="../img/cart-icon.png" class="cartImg" alt=""></a>

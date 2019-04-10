@@ -1,6 +1,6 @@
 <?php
 
-require_once('../dbconnect/dbconnect.php');
+include '../dbconnect/dbconnect.php';
 
 class ShowAllEvents{
 
