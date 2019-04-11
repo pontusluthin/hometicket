@@ -22,7 +22,8 @@ html, body {
   cursor: pointer !important;
   color: white !important;
   font-size: 1.5em !important;
-  font-family: 'Staatliches', cursive !important; }
+  font-family: 'Staatliches', cursive !important;
+  margin-right: 0.5em; }
 .mainNav .textLinks {
   margin-left: 1em;
   margin-right: 1em; }

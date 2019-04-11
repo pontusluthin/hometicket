@@ -23,7 +23,12 @@ if(isset($_GET['del'])){
         $delete->delete($id);
 }
 
-?>
+require '../dbconnect/dbconnect.php';
+require '../loginAdmin/adminSignup.php';
+
+?>  
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,17 +44,73 @@ if(isset($_GET['del'])){
 </head>
 <body>
 
+<div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="signup" aria-hidden="true">
+  <div class="modal-dialog modal-dialog" role="document">
+    <div class="modal-content align-items-center">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Signup</h5>
+        
+      </div>
+      <div class="modal-body">
+
+
+                <?php if (isset($_SESSION['message'])):?>
+
+                <div class="alert alert-<?=$_SESSION['msg_type']?>">
+                <?php 
+                        echo $_SESSION['message'];
+                        unset($_SESSION['message']);
+                ?>
+                </div>
+                <?php endif ?>
+                
+                <form  class="signupForm" method="post">
+                        Admin Username <br>
+                        <input type="text" name="adminUsername"><br>
+                        Admin Password <br>
+                        <input type="text" name="adminPassword"><br>
+                        Admin Email <br>
+                        <input type="text" name="adminEmail"><br>
+                        Admin Phone <br>
+                        <input type="text" name="adminPhone"><br>
+
+                        <div class="modal-footer">
+                        <input type="submit" class="btn btn-primary loginButton" value="Signup" name="signupAdminBtn">
+                        <button type="button" class="btn btn-secondary closeButton" data-dismiss="modal">Close</button>
+                        </div>
+                       <!-- Agreed to our terms and conditions: 
+                        <input type="checkbox" name="customerAgree">-->
+                </form>
+
+               
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+        
         <header class="mainHeader d-flex justify-content-center row align-items-center">
                 <img class="logo" src="../img/hometicketLogo.png" alt="">
                 <nav class="mainNav d-flex justify-content-center">
-                        <a href="#" class="textLinks">Home</a>
-                        <a href="#" class="textLinks">Events</a>
-                        <a href="#" class="textLinks">About</a>
-                        <a href="validate.html">Validate/Show ticket</a>
-                        <a href="#" class="magnifierLink"><img src="../img/magnifier.png" class="magnifierImg" alt=""></a>
-                        <a href="#" class="favoriteLink"><img src="../img/favorite-heart-button.png" class="favoriteImg" alt=""></a>
-                        <a href="#" class="cartLink"><img src="../img/cart-icon.png" class="cartImg" alt=""></a>
+                        <a href="../loginAdmin/adminSite.php" class="textLinks">Home</a>
+                        <a href="../event-CRUD/eventDisplay.php" class="textLinks">Edit Events</a>
+                        <a href="#" class="textLinks">Edit Tickets</a>
+                        <a href="#" class="textLinks">Edit Customers</a>
+                        <a href="#" class="textLinks">Edit Admin</a>
+                        <a  href="#" data-toggle="modal" data-target="#signup">Create admin</a>
+                        <?php echo $logout?>
+                       
                 </nav>
+
+                <!-- Button trigger modal -->
+
+
+
+               
+               
         </header>
 
         <main class="d-flex  justify-content-center align-items-center eventDisplayMain">
@@ -117,7 +178,7 @@ if(isset($_GET['del'])){
                                         <a href="#"><img src="../img/linkedin.png" alt=""></a>
                                 </section>
                                 <a href="#">#HomeTicket</a>
-                        </div>
+                        </a>
                 </section>
                 <section class="mainFooterMenu d-flex flex-column justify-content-center align-items-center">    
                         <h2>All Categories</h2>
