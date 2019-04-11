@@ -1,4 +1,17 @@
 <?php
+
+session_start();  
+if(isset($_SESSION["adminUsername"]))  
+{      
+     $logout = '<br /><br /><a href="../loginCustomer/logout.php">Logout</a>'; 
+}  
+else  
+{  
+     header("location:../startpage(index).php"); 
+     echo "<div>Testa att logga in</div>"; 
+    
+}  
+
 function __autoload($class){
         require_once "$class.php";  
 }

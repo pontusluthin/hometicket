@@ -1,11 +1,14 @@
 <?php
 
+
 session_start(); 
+
+
+
 require 'dbconnect/dbconnect.php';
 require 'loginCustomer/customer.php'; 
+require 'loginAdmin/adminLogin.php';
 require('includes/ShowEvents.php'); 
-
-
 
 
 ?>
@@ -72,17 +75,18 @@ require('includes/ShowEvents.php');
       </div>
       <div class="modal-body">
 
-                <form action="">
+                <form action="" method="post">
                         Admin Username:<br>
-                        <input type="text"><br>
+                        <input type="text" name="adminUsername"><br>
                         Admin Password:<br>
-                        <input type="password">
+                        <input type="password" name="adminPassword">
+
+                        <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary closeButton" data-dismiss="modal">Close</button>
+                                <input type="submit" class="btn btn-primary loginButton" value="Login" name="adminLoginBtn">
+                        </div>
                 </form>
 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary closeButton" data-dismiss="modal">Close</button>
-        <input type="submit" class="btn btn-primary loginButton" value="Login">
       </div>
     </div>
   </div>
@@ -162,7 +166,7 @@ require('includes/ShowEvents.php');
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary closeButton" data-dismiss="modal">Close</button>
-        <input type="submit" class="btn btn-primary loginButton" value="Checkout">
+        <button type="submit" class="btn btn-primary loginButton"><a href="payment/payment.php">Checkout</a></button>
       </div>
     </div>
   </div>

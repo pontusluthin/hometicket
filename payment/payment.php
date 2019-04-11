@@ -8,6 +8,7 @@ if(isset($_SESSION["username"]))
 else  
 {  
      header("location:../startpage(index).php");  
+     
     
 }  
 ?>  
@@ -173,7 +174,7 @@ else
         <header class="mainHeader d-flex justify-content-center row align-items-center">
                 <img class="logo" src="../img/hometicketLogo.png" alt="">
                 <nav class="mainNav d-flex justify-content-center">
-                        <a href="#" class="textLinks">Home</a>
+                        <a href="../startpage(index).php" class="textLinks">Home</a>
                         <a href="../events/events.php" class="textLinks">Events</a>
                         <a  href="#" data-toggle="modal" data-target="#loginmodal">Login/Create account</a>
                         <a href="#" class="textLinks">About</a>

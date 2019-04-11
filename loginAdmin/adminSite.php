@@ -1,7 +1,7 @@
 <?php
 
 session_start();  
-if(isset($_SESSION["username"]))  
+if(isset($_SESSION["adminUsername"]))  
 {      
      $logout = '<br /><br /><a href="../loginCustomer/logout.php">Logout</a>'; 
 }  
@@ -9,8 +9,12 @@ else
 {  
      header("location:../startpage(index).php");  
     
-}  
+}
+require '../dbconnect/dbconnect.php';
+require 'adminSignup.php';
+
 ?>  
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,60 +39,8 @@ else
         ?> 
  
 
-<!-- Customer modal login form-->
-<div class="modal fade" id="loginmodal" tabindex="-1" role="dialog" aria-labelledby="loginmodal" aria-hidden="true">
-  <div class="modal-dialog modal-dialog" role="document">
-    <div class="modal-content align-items-center">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalCenterTitle">Login</h5>
-       
-        
-      </div>
-      <div class="modal-body">
 
-                <form action="" method="POST">
-                        Username:<br>
-                        <input type="text" name="username"><br>
-                        Password:<br>
-                        <input type="password" name="password">
 
-                        <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary closeButton" data-dismiss="modal">Close</button>
-                                <input type="submit" class="btn btn-primary loginButton" value="Login" name="loginCustomerBtn">
-                        </div>
-                </form>
-
-      </div>
-      <a class="signupLink" data-toggle="modal" data-target="#signup">Create new user</a>
-      <a class="signupLink" data-toggle="modal" data-target="#adminlogin" >Login Admin</a>
-    </div>
-  </div>
-</div>
-
-<div class="modal fade" id="adminlogin" tabindex="-1" role="dialog" aria-labelledby="adminlogin" aria-hidden="true">
-  <div class="modal-dialog modal-dialog" role="document">
-    <div class="modal-content align-items-center">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalCenterTitle">Login</h5>
-        
-      </div>
-      <div class="modal-body">
-
-                <form action="">
-                        Admin Username:<br>
-                        <input type="text"><br>
-                        Admin Password:<br>
-                        <input type="password">
-                </form>
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary closeButton" data-dismiss="modal">Close</button>
-        <input type="submit" class="btn btn-primary loginButton" value="Login">
-      </div>
-    </div>
-  </div>
-</div>
 
 <div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="signup" aria-hidden="true">
   <div class="modal-dialog modal-dialog" role="document">
@@ -111,27 +63,17 @@ else
                 <?php endif ?>
                 
                 <form  class="signupForm" method="post">
-                        First Name <br>
-                        <input type="text" name="firstname"><br>
-                        Last Name <br>
-                        <input type="text" name="lastname"><br>
-                        Address <br>
-                        <input type="text" name="address"><br>
-                        ZIP Code <br>
-                        <input type="text" name="zip"><br>
-                        City <br>
-                        <input type="text" name="city"><br>
-                        Email <br>
-                        <input type="text" name="mail"><br>
-                        Phone <br>
-                        <input type="text" name="phone"><br>
-                        Username:<br>
-                        <input type="text" name="username" ><br>
-                        Password:<br>
-                        <input type="password" name="password"><br>
+                        Admin Username <br>
+                        <input type="text" name="adminUsername"><br>
+                        Admin Password <br>
+                        <input type="text" name="adminPassword"><br>
+                        Admin Email <br>
+                        <input type="text" name="adminEmail"><br>
+                        Admin Phone <br>
+                        <input type="text" name="adminPhone"><br>
 
                         <div class="modal-footer">
-                        <input type="submit" class="btn btn-primary loginButton" value="Signup" name="signupCustomerBtn">
+                        <input type="submit" class="btn btn-primary loginButton" value="Signup" name="signupAdminBtn">
                         <button type="button" class="btn btn-secondary closeButton" data-dismiss="modal">Close</button>
                         </div>
                        <!-- Agreed to our terms and conditions: 
@@ -146,42 +88,17 @@ else
 </div>
 
 
-<!--Shopping cart-->
-<div class="modal fade" id="shoppingcartmodal" tabindex="-1" role="dialog" aria-labelledby="shoppingcartmodal" aria-hidden="true">
-  <div class="modal-dialog" role="document" style="    margin: 0;
-    float: right;
-    width: 25%;
-    margin-right: 2em;
-    margin-top: 6em;">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalCenterTitle">Shopping cart</h5>
-        
-      </div>
-      <div class="modal-body" id="eventAdd">
 
-        
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary closeButton" data-dismiss="modal">Close</button>
-        <input type="submit" class="btn btn-primary loginButton" value="Checkout">
-      </div>
-    </div>
-  </div>
-</div>
         
         <header class="mainHeader d-flex justify-content-center row align-items-center">
                 <img class="logo" src="../img/hometicketLogo.png" alt="">
                 <nav class="mainNav d-flex justify-content-center">
                         <a href="#" class="textLinks">Home</a>
-                        <a href="../events/events.php" class="textLinks">Events</a>
-                        <a  href="#" data-toggle="modal" data-target="#loginmodal">Login/Create account</a>
-                        <a href="#" class="textLinks">About</a>
-                        <a href="#">Validate/Show ticket</a>
-                        <a href="../loginCustomer/logout.php">Logout</a>
-                        <a href="#" class="magnifierLink"><img src="../img/magnifier.png" class="magnifierImg" alt=""></a>
-                        <a href="#"  class="favoriteLink"><img src="../img/favorite-heart-button.png" class="favoriteImg" alt=""></a>
-                        <a  id="cartBtn" class="cartLink" data-toggle="modal" data-target="#shoppingcartmodal"><img src="../img/cart-icon.png" class="cartImg" alt=""></a>
+                        <a href="../event-CRUD/eventDisplay.php" class="textLinks">Edit Events</a>
+                        <a href="#" class="textLinks">Edit Tickets</a>
+                        <a href="#" class="textLinks">Edit Customers</a>
+                        <a  href="#" data-toggle="modal" data-target="#signup">Create admin</a>
+                        <?php echo $logout?>
                        
                 </nav>
 
@@ -202,40 +119,6 @@ else
        
                    
 
-                        <div class="gridMain">
-                        <?php
-                                $events = new ShowEvents(); 
-
-                                $rows = $events->select();
-                                $json = json_encode($rows);
-                                
-                                $i = 0;
-                                foreach($rows as $row){
-                                //Function that only let 8 events to be displayed on the startpage         
-                                if ($i == 8) { break; }
-                               
-                                
-                        ?>
-                              
-                                <section class="event-design">
-                                        <div class="eventId"><?php echo $row['eventId'];?></div>
-                                        <div class="eventTitle arrayinfo"><?php echo $row['eventTitle'];?></div>
-                                        <div>
-                                                <img class="eventImg" 
-                                                src="<?php echo $row["eventImg"];?>"
-                                                />
-                                        </div>
-                                        <div class="eventPrice"> From <span class="eventPriceToCart arrayinfo"><?php echo $row['eventPrice'];?></span> SEK</div>
-                                        <button id="buyButton_<?php echo $row['eventId']; ?>" class="buyButton">BUY TICKETS</button>
-                                </section>
-                        
-
-                        <?php
-                        $i++;
-                        }
-                        ?>
-
-                       <textarea name="" id="json_data" cols="30" rows="10"><?php echo $json?></textarea>
                      </div>
 
                      
