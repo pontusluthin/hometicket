@@ -98,7 +98,7 @@ require 'adminSignup.php';
                         <a href="../ticket-CRUD/ticketDisplay.php" class="textLinks">Edit Tickets</a>
                         <a href="../customer-CRUD/customerDisplay.php" class="textLinks">Edit Customers</a>
                         <a href="../order-CRUD/orderDisplay.php" class="textLinks">Edit Orders</a>
-                        <a href="#" class="textLinks">Edit Admin</a>
+                        <a href="../admin-CRUD/adminDisplay.php" class="textLinks">Edit Admin</a>
                         <a  href="#" data-toggle="modal" data-target="#signup">Create admin</a>
                         <?php echo $logout?>
                        
