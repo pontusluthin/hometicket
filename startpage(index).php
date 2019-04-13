@@ -162,6 +162,7 @@ require('includes/ShowEvents.php');
       </div>
       <div class="modal-body" id="eventAdd">
 
+                <?php echo $_COOKIE['cart']?>
         
       </div>
       <div class="modal-footer">
@@ -225,7 +226,7 @@ require('includes/ShowEvents.php');
                                                 src="<?php echo $row["eventImg"];?>"
                                                 />
                                         </div>
-                                        <div class="eventPrice"> From <span class="eventPriceToCart arrayinfo"><?php echo $row['eventPrice'];?></span> SEK</div>
+                                        <div class="eventPrice"> From <span class="eventPriceToCart arrayinfo"> <?php echo $row['eventPrice'];?></span> SEK</div>
                                         <button id="buyButton_<?php echo $row['eventId']; ?>" class="buyButton">BUY TICKETS</button>
                                 </section>
                         
