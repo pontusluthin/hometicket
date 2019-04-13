@@ -7,19 +7,31 @@ if(isset($_SESSION["adminUsername"]))
 }  
 else  
 {  
-     header("location:../startpage(index).php");  
+     header("location:../startpage(index).php"); 
+     echo "<div>Testa att logga in</div>"; 
     
+}  
+
+function __autoload($class){
+        require_once "$class.php";  
 }
+
+if(isset($_GET['del'])){
+        $id = $_GET['del'];
+
+        $delete = new Orders(); 
+        $delete->delete($id);
+}
+
 require '../dbconnect/dbconnect.php';
-require 'adminSignup.php';
+require '../loginAdmin/adminSignup.php';
 
 ?>  
+
 
 <!DOCTYPE html>
 <html>
 <head>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-
     <link href="https://fonts.googleapis.com/css?family=Staatliches" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
     <meta charset="utf-8">
@@ -27,20 +39,10 @@ require 'adminSignup.php';
     <title>HomeTicket - Events for all</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="../css/main.css">
+    <script src="main.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" media="screen" href="../bootstrap.css">
 </head>
 <body>
-<?php  
-                if(isset($message))  
-                {  
-                     echo '<label class="text-danger">'.$message.'</label>';  
-                }  
-        ?> 
- 
-
-
-
 
 <div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="signup" aria-hidden="true">
   <div class="modal-dialog modal-dialog" role="document">
@@ -93,11 +95,10 @@ require 'adminSignup.php';
         <header class="mainHeader d-flex justify-content-center row align-items-center">
                 <img class="logo" src="../img/hometicketLogo.png" alt="">
                 <nav class="mainNav d-flex justify-content-center">
-                        <a href="#" class="textLinks">Home</a>
+                        <a href="../loginAdmin/adminSite.php" class="textLinks">Home</a>
                         <a href="../event-CRUD/eventDisplay.php" class="textLinks">Edit Events</a>
-                        <a href="../ticket-CRUD/ticketDisplay.php" class="textLinks">Edit Tickets</a>
-                        <a href="../customer-CRUD/customerDisplay.php" class="textLinks">Edit Customers</a>
-                        <a href="../order-CRUD/orderDisplay.php" class="textLinks">Edit Orders</a>
+                        <a href="#" class="textLinks">Edit Tickets</a>
+                        <a href="#" class="textLinks">Edit Customers</a>
                         <a href="#" class="textLinks">Edit Admin</a>
                         <a  href="#" data-toggle="modal" data-target="#signup">Create admin</a>
                         <?php echo $logout?>
@@ -112,20 +113,49 @@ require 'adminSignup.php';
                
         </header>
 
-       
+        <main class="d-flex  justify-content-center align-items-center eventDisplayMain">
+                <div class="container mt-4">
+                        <div class="row">
+                                <div class="jumbotron">
+                                    <h3>All tickets</h3>
+                                    <a class="btn btn-sm btn-primary" href="create.php">Insert new ticket</a>
+                                    <table class="table">
+                                            <thead>
+                                                    <tr>
+                                                            <th scope="col">Order ID</th>
+                                                            <th scope="col">Date</th>
+                                                            <th scope="col">Customer ID</th>
+                                                            <th scope="col">Action</th>
 
-        <section class="searchField">
-                
-        </section>
-        <main class="d-flex justify-content-center align-items-center">
-       
-                   
+                                                    </tr>
+                                            </thead>
+                                            <tbody>
+                                                
+                                                <?php
+                                                        $events = new Orders(); 
 
-                     </div>
+                                                        $rows = $events->select();
+                                                        
+                                                        foreach($rows as $row){
+                                                                ?>
+                                                        <tr>
+                                                                <th scope="row"><?php echo $row['orderId'];?></th>                                                                
+                                                                <td><?php echo $row['date'];?></td>
+                                                                <td><?php echo $row['customerId'];?></td>
+                                                                <td><a class="btn btn-sm btn-primary" href="edit.php?id=<?php echo $row['orderId'];?>">Edit</a> &nbsp; <a class="btn btn-sm btn-danger" href="orderDisplay.php?del=<?php echo $row['orderId'];?>">Delete</a></td>
+                                                        </tr>
 
-                     
+                                                        <?php
+
+                                                        }
+                                                ?>
+                                            </tbody>
+                                    </table>
+                                </div>
+                        </div>
+                </div>
         </main>
-        
+
 
         <footer class="mainFooter">
                 <section class="moreAboutInfo d-flex flex-column justify-content-center  align-items-center">
@@ -138,13 +168,13 @@ require 'adminSignup.php';
                                         <button type="submit">Subscribe</button>
                                 </form>
                                 <section>
-                                        <a href="#"><img src="img/facebook.png" alt=""></a>
-                                        <a href="#"><img src="img/instagram.png" alt=""></a>
-                                        <a href="#"><img src="img/youtube.png" alt=""></a>
-                                        <a href="#"><img src="img/linkedin.png" alt=""></a>
+                                        <a href="#"><img src="../img/facebook.png" alt=""></a>
+                                        <a href="#"><img src="../img/instagram.png" alt=""></a>
+                                        <a href="#"><img src="../img/youtube.png" alt=""></a>
+                                        <a href="#"><img src="../img/linkedin.png" alt=""></a>
                                 </section>
                                 <a href="#">#HomeTicket</a>
-                        </div>
+                        </a>
                 </section>
                 <section class="mainFooterMenu d-flex flex-column justify-content-center align-items-center">    
                         <h2>All Categories</h2>
@@ -238,8 +268,8 @@ require 'adminSignup.php';
                 </section>
                 <p class="copyright">HomeTicket Sweden AB © 2019 | <a href="#">Terms</a> | <a href="#">Cookies</a> | <a href="#">About</a></p>
         </footer>
-  <div id="jsonTest"></div>
-    <script src="../main.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
