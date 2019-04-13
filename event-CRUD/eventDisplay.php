@@ -96,7 +96,7 @@ require '../loginAdmin/adminSignup.php';
                 <img class="logo" src="../img/hometicketLogo.png" alt="">
                 <nav class="mainNav d-flex justify-content-center">
                         <a href="../loginAdmin/adminSite.php" class="textLinks">Home</a>
-                        <a href="../event-CRUD/eventDisplay.php" class="textLinks">Edit Events</a>
+                        <a href="eventDisplay.php" class="textLinks">Edit Events</a>
                         <a href="#" class="textLinks">Edit Tickets</a>
                         <a href="#" class="textLinks">Edit Customers</a>
                         <a href="#" class="textLinks">Edit Admin</a>
