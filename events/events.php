@@ -203,6 +203,7 @@ include 'ShowAllEvents.php';
                         
                                 <section class="event-design">
                                 <div class="eventTitle"><?php echo $row['eventTitle'];?></div>
+                                <div class="eventPrice"><?php echo $row['eventDate'];?></div>
                                 <div>
                                         <img class="eventImg"
                                         src="<?php echo $row["eventImg"];?>"

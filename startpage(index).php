@@ -221,6 +221,7 @@ require('includes/ShowEvents.php');
                                 <section class="event-design">
                                         <div class="eventId"><?php echo $row['eventId'];?></div>
                                         <div class="eventTitle arrayinfo"><?php echo $row['eventTitle'];?></div>
+                                        <div class="eventPrice"><?php echo $row['eventDate'];?></div>
                                         <div>
                                                 <img class="eventImg" 
                                                 src="<?php echo $row["eventImg"];?>"

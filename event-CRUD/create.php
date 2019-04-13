@@ -23,6 +23,7 @@ if(isset($_POST['submit'])){
 
     $target_dir = "http://localhost/hometicket/event-CRUD/images/";
     $eventTitle = $_POST['eventTitle'];
+    $eventDate = $_POST['eventDate'];
     $eventImg = $target_dir .basename($_FILES['eventImg']['name']);
     $eventInfo = $_POST['eventInfo'];
     $eventPrice = $_POST['eventPrice'];
@@ -36,6 +37,7 @@ if(isset($_POST['submit'])){
     $fields = [
 
         'eventTitle' =>$eventTitle, 
+        'eventDate' =>$eventDate, 
         'eventImg' =>$eventImg, 
         'eventInfo' =>$eventInfo, 
         'eventPrice' =>$eventPrice, 
@@ -145,6 +147,10 @@ if(isset($_POST['submit'])){
                                                 <div class="form-group">
                                                         <label for="eventTitle">Event Title</label>
                                                         <input type="text" class="form-control" name="eventTitle" placeholder="Enter Event Title">
+                                                </div>
+                                                <div class="form-group">
+                                                        <label for="eventDate">Event Date</label>
+                                                        <input type="text" class="form-control" name="eventDate" placeholder="Enter Event Date">
                                                 </div>
                                                 <div class="form-group">
                                                         <label for="eventImg">Event Image</label>

@@ -124,6 +124,7 @@ require '../loginAdmin/adminSignup.php';
                                                     <tr>
                                                             <th scope="col">#</th>
                                                             <th scope="col">Event Title</th>
+                                                            <th scope="col">Event Date</th>
                                                             <th scope="col">Event Image</th>
                                                             <th scope="col">Event Info</th>
                                                             <th scope="col">Event Price</th>
@@ -143,6 +144,7 @@ require '../loginAdmin/adminSignup.php';
                                                         <tr>
                                                                 <th scope="row"><?php echo $row['eventId'];?></th>
                                                                 <td><?php echo $row['eventTitle'];?></td>
+                                                                <td><?php echo $row['eventDate'];?></td>
                                                                 <td><?php echo $row['eventImg'];?></td>
                                                                 <td><?php echo $row['eventInfo'];?></td>
                                                                 <td><?php echo $row['eventPrice'];?></td>
