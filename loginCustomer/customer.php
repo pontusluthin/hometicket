@@ -1,10 +1,6 @@
 <?php 
 
 
-
-
-
-
 $dbobject = new DBConnect(); 
 $pdo = $dbobject->pdo; 
 
@@ -52,7 +48,8 @@ if(isset($_POST['loginCustomerBtn'])) {
              {  
                   $_SESSION["username"] = $_POST["username"];  
      
-                  header("location:payment/payment.php");  
+                  header("location:startpage(index).php");  
+                  echo $_SESSION['username'];
                    
              }  
              else  
