@@ -120,10 +120,10 @@ require '../loginAdmin/adminSignup.php';
                                     <table class="table">
                                             <thead>
                                                     <tr>
-                                                            <th scope="col">#</th>
-                                                            <th scope="col">Order ID</th>
+                                                            <th scope="col">Ticket ID</th>
                                                             <th scope="col">Event ID</th>
-                                                            <th scope="col">Quantity</th>
+                                                            <th scope="col">Validation</th>
+                                                            <th scope="col">Order ID</th>
                                                             <th scope="col">Action</th>
 
                                                     </tr>
@@ -141,9 +141,9 @@ require '../loginAdmin/adminSignup.php';
                                                                 ?>
                                                         <tr>
                                                                 <th scope="row"><?php echo $row['ticketId'];?></th>                                                                
-                                                                <td><?php echo $row['orderId'];?></td>
                                                                 <td><?php echo $row['eventId'];?></td>
-                                                                <td><?php echo $row['quantity'];?></td>
+                                                                <td><?php echo $row['validation'];?></td>
+                                                                <td><?php echo $row['orderId'];?></td>
                                                                 <td><a class="btn btn-sm btn-primary" href="edit.php?id=<?php echo $row['ticketId'];?>">Edit</a> &nbsp; <a class="btn btn-sm btn-danger" href="ticketDisplay.php?del=<?php echo $row['ticketId'];?>">Delete</a></td>
                                                         </tr>
 

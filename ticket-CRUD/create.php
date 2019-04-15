@@ -23,16 +23,18 @@ function __autoload($class){
 if(isset($_POST['submit'])){
 
     
-    $orderId = filter_input(INPUT_POST,'orderId', FILTER_SANITIZE_NUMBER_INT);
+    
     $eventId = filter_input(INPUT_POST,'eventId', FILTER_SANITIZE_NUMBER_INT);
-    $quantity = filter_input(INPUT_POST,'quantity', FILTER_SANITIZE_NUMBER_INT);
+    $validation = filter_input(INPUT_POST,'validation', FILTER_SANITIZE_STRING);
+    $orderId= filter_input(INPUT_POST,'orderId', FILTER_SANITIZE_STRING);
 
   
     $fields = [
 
-        'orderId' =>$orderId, 
         'eventId' =>$eventId, 
-        'quantity' =>$quantity, 
+        'validation' =>$validation,
+        'orderId' =>$orderId,  
+        
         
     ];
 
@@ -138,17 +140,17 @@ if(isset($_POST['submit'])){
 
                                         <form action="" method="post" enctype="multipart/form-data">
                                                 <div class="form-group">
-                                                        <label for="orderId">Order ID</label>
-                                                        <input type="number" class="form-control" name="orderId" placeholder="Enter order id">
-                                                </div>
-                                                <div class="form-group">
                                                         <label for="eventId">Event ID</label>
                                                         <input type="number" class="form-control" name="eventId">
+                                                </div>                 
+                                                <div class="form-group">
+                                                        <label for="validation">Validation</label>
+                                                        <input type="number" class="form-control" name="validation" placeholder="Enter validation">
                                                 </div>
                                                 <div class="form-group">
-                                                        <label for="quantity">Quantity</label>
-                                                        <input type="text" class="form-control" name="quantity" placeholder="Enter quantity">
-                                                </div>                   
+                                                        <label for="orderId">Order Id</label>
+                                                        <input type="number" class="form-control" name="orderId" placeholder="Enter order id">
+                                                </div>
                                                 <input type="submit" name="submit" class="btn btn-primary">
 
                                         </form>

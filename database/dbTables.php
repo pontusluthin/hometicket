@@ -17,7 +17,7 @@ try {
 
 
 
-$event_Table = "CREATE TABLE Events (
+/*$event_Table = "CREATE TABLE Events (
     eventId INT (10) AUTO_INCREMENT PRIMARY KEY,
     eventTitle VARCHAR (100) NOT NULL, 
     eventImg VARCHAR (100) NOT NULL,
@@ -44,30 +44,34 @@ $customer_Table = "CREATE TABLE Customers(
 )";
 
 $conn->exec($customer_Table); 
-echo "Table Customers created successfully";
+echo "Table Customers created successfully";*/
 
-$order_Table = "CREATE TABLE Orders(
+/*$order_Table = "CREATE TABLE Orders(
     orderId INT (10) AUTO_INCREMENT PRIMARY KEY, 
     date DATETIME NOT NULL, 
     customerId INT NOT NULL, 
     FOREIGN KEY fk_customer(customerId)
-    REFERENCES Customers(customerId)
+    REFERENCES Customers(customerId),
+    eventId INT NOT NULL, 
+    FOREIGN KEY fk_event(eventId)
+    REFERENCES Events(eventId)
+    
     
 
 )";
 
 $conn->exec($order_Table); 
-echo "Table Orders created successfully";
+echo "Table Orders created successfully";*/
 
-$tickets_Table = "CREATE TABLE Ticket(
+$tickets_Table = "CREATE TABLE Tickets(
     ticketId INT (10) AUTO_INCREMENT PRIMARY KEY,
-    orderId INT NOT NULL, 
-    FOREIGN KEY fk_order(orderId)
-    REFERENCES Orders(orderId), 
     eventId INT NOT NULL, 
-    FOREIGN KEY fk_event(eventId)
+    FOREIGN KEY fk_ticket_event(eventId)
     REFERENCES Events(eventId), 
-    quantity INT NOT NULL
+    validation VARCHAR(10) NOT NULL,
+    orderId INT NOT NULL, 
+    FOREIGN KEY fk_ticket_order(orderId)
+    REFERENCES Orders(orderId)
     
 )";
 

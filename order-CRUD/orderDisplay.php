@@ -127,6 +127,7 @@ require '../loginAdmin/adminSignup.php';
                                                             <th scope="col">Order ID</th>
                                                             <th scope="col">Date</th>
                                                             <th scope="col">Customer ID</th>
+                                                            <th scope="col">Event ID</th>
                                                             <th scope="col">Action</th>
 
                                                     </tr>
@@ -144,6 +145,7 @@ require '../loginAdmin/adminSignup.php';
                                                                 <th scope="row"><?php echo $row['orderId'];?></th>                                                                
                                                                 <td><?php echo $row['date'];?></td>
                                                                 <td><?php echo $row['customerId'];?></td>
+                                                                <td><?php echo $row['eventId'];?></td>
                                                                 <td><a class="btn btn-sm btn-primary" href="edit.php?id=<?php echo $row['orderId'];?>">Edit</a> &nbsp; <a class="btn btn-sm btn-danger" href="orderDisplay.php?del=<?php echo $row['orderId'];?>">Delete</a></td>
                                                         </tr>
 

@@ -29,11 +29,15 @@ if(isset($_GET['id'])){
 
 if(isset($_POST['submit'])){
 
-    $quantity = filter_input(INPUT_POST,'quantity', FILTER_SANITIZE_NUMBER_INT);
+    $eventId = filter_input(INPUT_POST,'eventId', FILTER_SANITIZE_NUMBER_INT);
+    $validation = filter_input(INPUT_POST,'validation', FILTER_SANITIZE_STRING);
+    $orderId = filter_input(INPUT_POST,'orderId', FILTER_SANITIZE_NUMBER_INT);
 
     $fields = [
 
-        'quantity' =>$quantity, 
+        'eventId' =>$eventId, 
+        'validation' =>$validation,
+        'orderId' =>$orderId
        
     ];
 
@@ -133,16 +137,16 @@ if(isset($_POST['submit'])){
                                         <form action="" method="post" enctype="multipart/form-data">
                                                 <input type="hidden" name="id" value="<?php echo $result['ticketId'];?>">
                                                 <div class="form-group">
-                                                        <label for="orderId">Order ID</label>
-                                                        <input type="number" class="form-control" name="orderId"  value="<?php echo $result['orderId'];?>">
-                                                </div>
-                                                <div class="form-group">
                                                         <label for="eventId">Event ID</label>
                                                         <input type="number" class="form-control" name="eventId" value="<?php echo $result['eventId'];?>">
                                                 </div>
                                                 <div class="form-group">
-                                                        <label for="quantity">Quantity</label>
-                                                        <input type="text" class="form-control" name="quantity" value="<?php echo $result['quantity'];?>">
+                                                        <label for="validation">Validation</label>
+                                                        <input type="text" class="form-control" name="validation" value="<?php echo $result['validation'];?>">
+                                                </div>
+                                                <div class="form-group">
+                                                        <label for="orderId">Order Id</label>
+                                                        <input type="text" class="form-control" name="orderId" value="<?php echo $result['orderId'];?>">
                                                 </div>
                                                 
                                                 <input type="submit" name="submit" class="btn btn-primary">

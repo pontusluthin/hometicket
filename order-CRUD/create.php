@@ -27,12 +27,14 @@ if(isset($_POST['submit'])){
    
     $date = filter_input(INPUT_POST,'date',FILTER_SANITIZE_STRING);
     $customerId = filter_input(INPUT_POST,'customerId',FILTER_SANITIZE_STRING);
+    $eventId = filter_input(INPUT_POST,'eventId',FILTER_SANITIZE_STRING);
 
   
     $fields = [
 
         'date' =>$date, 
         'customerId' =>$customerId, 
+        'eventId' =>$eventId, 
         
     ];
 
@@ -144,7 +146,11 @@ if(isset($_POST['submit'])){
                                                 <div class="form-group">
                                                         <label for="customerId">Customer ID</label>
                                                         <input type="number" class="form-control" name="customerId">
-                                                </div>                 
+                                                </div>    
+                                                <div class="form-group">
+                                                        <label for="eventId">Event ID</label>
+                                                        <input type="number" class="form-control" name="eventId">
+                                                </div>                
                                                 <input type="submit" name="submit" class="btn btn-primary">
 
                                         </form>
