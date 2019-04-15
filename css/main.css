@@ -17,6 +17,9 @@ html, body {
   margin-left: 7em;
   margin-top: 1em; }
 
+.homeBtn {
+  margin-left: 4em !important; }
+
 .mainNav a {
   text-decoration: none !important;
   cursor: pointer !important;

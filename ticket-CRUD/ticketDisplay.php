@@ -99,11 +99,11 @@ require '../loginAdmin/adminSignup.php';
 
                 <!--Main nav for admin user-->
                 <nav class="mainNav d-flex justify-content-center">
-                        <a href="../loginAdmin/adminSite.php" class="textLinks">Home</a>
+                        <a href="../loginAdmin/adminSite.php" class="textLinks homeBtn">Home</a>
                         <a href="../event-CRUD/eventDisplay.php" class="textLinks">Edit Events</a>
-                        <a href="#" class="textLinks">Edit Tickets</a>
-                        <a href="#" class="textLinks">Edit Customers</a>
-                        <a href="#" class="textLinks">Edit Admin</a>
+                        <a href="../customer-CRUD/customerDisplay.php" class="textLinks">Edit Customers</a>
+                        <a href="../order-CRUD/orderDisplay.php" class="textLinks">Edit Order</a>
+                        <a href="../admin-CRUD/adminDisplay.php" class="textLinks">Edit Admin</a>
                         <a  href="#" data-toggle="modal" data-target="#signup">Create admin</a>
                         <?php echo $logout?>
                        

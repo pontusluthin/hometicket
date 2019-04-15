@@ -94,7 +94,6 @@ require 'adminSignup.php';
         <header class="mainHeader d-flex justify-content-center row align-items-center">
                 <img class="logo" src="../img/hometicketLogo.png" alt="">
                 <nav class="mainNav d-flex justify-content-center">
-                        <a href="#" class="textLinks">Home</a>
                         <a href="../event-CRUD/eventDisplay.php" class="textLinks">Edit Events</a>
                         <a href="../ticket-CRUD/ticketDisplay.php" class="textLinks">Edit Tickets</a>
                         <a href="../customer-CRUD/customerDisplay.php" class="textLinks">Edit Customers</a>
