@@ -173,7 +173,7 @@ include 'ShowAllEvents.php';
                         <a href="events.php" class="textLinks">Events</a>
                         <a  href="#" data-toggle="modal" data-target="#loginmodal">Login/Create account</a>
                         <a href="#" class="textLinks">About</a>
-                        <a href="#">Validate/Show ticket</a>
+                        <a href="../showTicket/showTicket.php">Validate/Show ticket</a>
                         <a href="#" class="magnifierLink"><img src="../img/magnifier.png" class="magnifierImg" alt=""></a>
                         <a href="#"  class="favoriteLink"><img src="../img/favorite-heart-button.png" class="favoriteImg" alt=""></a>
                         <a  id="cartBtn" class="cartLink" data-toggle="modal" data-target="#shoppingcartmodal"><img src="../img/cart-icon.png" class="cartImg" alt=""></a>

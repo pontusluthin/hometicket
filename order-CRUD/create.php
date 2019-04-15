@@ -114,10 +114,11 @@ if(isset($_POST['submit'])){
                 <img class="logo" src="../img/hometicketLogo.png" alt="">
                 <nav class="mainNav d-flex justify-content-center">
                         <a href="../loginAdmin/adminSite.php" class="textLinks">Home</a>
-                        <a href="eventDisplay.php" class="textLinks">Edit Events</a>
-                        <a href="#" class="textLinks">Edit Tickets</a>
-                        <a href="#" class="textLinks">Edit Customers</a>
-                        <a href="#" class="textLinks">Edit Admin</a>
+                        <a href="../event-CRUD/eventDisplay.php" class="textLinks">Edit Events</a>
+                        <a href="../ticket-CRUD/ticketDisplay.php" class="textLinks">Edit Tickets</a>
+                        <a href="../customer-CRUD/customerDisplay.php" class="textLinks">Edit Customers</a>
+                        <a href="orderDisplay.php" class="textLinks">Edit Orders</a>
+                        <a href="../admin-CRUD/adminDisplay.php" class="textLinks">Edit Admin</a>
                         <a  href="#" data-toggle="modal" data-target="#signup">Create admin</a>
                         <?php echo $logout?>
                        
