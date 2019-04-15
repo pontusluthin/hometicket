@@ -1,5 +1,7 @@
 <?php
 
+//Page where the choosen order for edit will be displayed
+
 session_start();
 if(isset($_SESSION["adminUsername"]))  
 {      
@@ -28,7 +30,7 @@ if(isset($_GET['id'])){
 if(isset($_POST['submit'])){
 
    
-    $customerId = $_POST['customerId'];
+    $customerId = filter_input(INPUT_POST,'customerId',FILTER_SANITIZE_NUMBER_INT);
 
    
 

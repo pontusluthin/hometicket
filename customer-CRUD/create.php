@@ -1,5 +1,7 @@
 <?php
 
+//Page to create a new customer as admin
+
 session_start();
 if(isset($_SESSION["adminUsername"]))  
 {      
@@ -21,15 +23,15 @@ function __autoload($class){
 
 if(isset($_POST['submit'])){
 
-    $firstName = $_POST['firstName'];
-    $lastName = $_POST['lastName'];
-    $address = $_POST['adress'];
-    $zip_code = $_POST['zip_code'];
-    $city = $_POST['city'];
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+    $firstName = filter_input(INPUT_POST,'firstName', FILTER_SANITIZE_STRING);
+    $lastName = filter_input(INPUT_POST,'lastName', FILTER_SANITIZE_STRING);
+    $address = filter_input(INPUT_POST,'adress', FILTER_SANITIZE_STRING);
+    $zip_code = filter_input(INPUT_POST,'zip_code', FILTER_SANITIZE_NUMBER_INT);
+    $city = filter_input(INPUT_POST,'city', FILTER_SANITIZE_STRING);
+    $email = filter_input(INPUT_POST,'email', FILTER_SANITIZE_EMAIL);
+    $phone = filter_input(INPUT_POST,'phone', FILTER_SANITIZE_STRING);
+    $username = filter_input(INPUT_POST,'username', FILTER_SANITIZE_STRING);
+    $password = filter_input(INPUT_POST,'password', FILTER_SANITIZE_STRING);
 
     
 
@@ -129,13 +131,7 @@ if(isset($_POST['submit'])){
                         <a  href="#" data-toggle="modal" data-target="#signup">Create admin</a>
                         <?php echo $logout?>
                        
-                </nav>
-
-                <!-- Button trigger modal -->
-
-
-
-               
+                </nav>        
                
         </header>
 

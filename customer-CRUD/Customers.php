@@ -33,10 +33,9 @@ class Customers{
             
         }
 
+        //function to insert/create new customer
         public function insert($fields){
 
-                //Insert new data into events
-                //"INSERT INTO Events (eventTitle, eventImg, eventInfo, eventPrice) VALUES (:eventTitle, :eventImg, :eventInfo, :eventPrice)";
 
             $implodeColumns = implode(',', array_keys($fields));
             $implodePlaceholder = implode(", :", array_keys($fields));
@@ -57,6 +56,7 @@ class Customers{
                 }
         }
 
+        //function to select specific customer to edit
         public function selectOne($id)
         {
             $sql = "SELECT * FROM Customers WHERE customerId = :customerId";
@@ -69,6 +69,7 @@ class Customers{
             
         }
 
+        //function to confirm update 
         public function update($fields, $id){
 
             $st = ""; 
@@ -106,6 +107,7 @@ class Customers{
 
         }
 
+        //function to delete specific customer
         public function delete ($id){
             $sql = "DELETE FROM Customers WHERE customerId = :customerId";
 

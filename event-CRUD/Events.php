@@ -33,10 +33,9 @@ class Events{
             
         }
 
+        //Function to insert/create new events
         public function insert($fields){
 
-                //Insert new data into events
-                //"INSERT INTO Events (eventTitle, eventImg, eventInfo, eventPrice) VALUES (:eventTitle, :eventImg, :eventInfo, :eventPrice)";
 
             $implodeColumns = implode(',', array_keys($fields));
             $implodePlaceholder = implode(", :", array_keys($fields));
@@ -57,6 +56,7 @@ class Events{
                 }
         }
 
+        //function to select specific event to edit
         public function selectOne($id)
         {
             $sql = "SELECT * FROM Events WHERE eventId = :eventId";
@@ -69,6 +69,7 @@ class Events{
             
         }
 
+        //function to confirm edit and insert new values
         public function update($fields, $id){
 
             $st = ""; 
@@ -106,6 +107,7 @@ class Events{
 
         }
 
+        //function to delete the selected event
         public function delete ($id){
             $sql = "DELETE FROM Events WHERE eventId = :eventId";
 

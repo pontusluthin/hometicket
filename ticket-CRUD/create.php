@@ -1,5 +1,6 @@
 <?php
 
+//This page is to insert or create new tickets 
 session_start();
 if(isset($_SESSION["adminUsername"]))  
 {      
@@ -22,9 +23,9 @@ function __autoload($class){
 if(isset($_POST['submit'])){
 
     
-    $orderId = $_POST['orderId'];
-    $eventId = $_POST['eventId'];
-    $quantity = $_POST['quantity'];
+    $orderId = filter_input(INPUT_POST,'orderId', FILTER_SANITIZE_NUMBER_INT);
+    $eventId = filter_input(INPUT_POST,'eventId', FILTER_SANITIZE_NUMBER_INT);
+    $quantity = filter_input(INPUT_POST,'quantity', FILTER_SANITIZE_NUMBER_INT);
 
   
     $fields = [

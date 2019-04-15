@@ -1,5 +1,7 @@
 <?php
 
+//Page where the event is displayed for admin 
+
 session_start();  
 if(isset($_SESSION["adminUsername"]))  
 {      

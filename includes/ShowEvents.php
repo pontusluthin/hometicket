@@ -11,7 +11,7 @@ class ShowEvents{
             $this->db = $db->pdo;
         }
 
-    //select all data from the database 
+    //select all data from the database, function to show all events on start page
 
         public function select(){
 

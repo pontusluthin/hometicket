@@ -1,5 +1,7 @@
 <?php
 
+//Page to edit admin user detail
+
 session_start();
 if(isset($_SESSION["adminUsername"]))  
 {      
@@ -27,10 +29,10 @@ if(isset($_GET['id'])){
 
 if(isset($_POST['submit'])){
 
-    $adminUsername = $_POST['adminUsername'];
-    $adminPassword = $_POST['adminPassword'];
-    $adminEmail = $_POST['adminEmail'];
-    $adminPhone = $_POST['adminPhone'];
+    $adminUsername = filter_input(INPUT_POST,'adminUsername', FILTER_SANITIZE_STRING);
+    $adminPassword = filter_input(INPUT_POST,'adminPassword', FILTER_SANITIZE_STRING);
+    $adminEmail = filter_input(INPUT_POST,'eventEmail', FILTER_SANITIZE_STRING);
+    $adminPhone = filter_input(INPUT_POST,'eventPhone', FILTER_SANITIZE_STRING);
 
    
 

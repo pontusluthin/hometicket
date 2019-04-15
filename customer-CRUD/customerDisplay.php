@@ -1,5 +1,7 @@
 <?php
 
+//page where customer are displayed for admin
+
 session_start();  
 if(isset($_SESSION["adminUsername"]))  
 {      
@@ -132,6 +134,7 @@ require '../loginAdmin/adminSignup.php';
                                                             <th scope="col">Phone</th>
                                                             <th scope="col">Username</th>
                                                             <th scope="col">Password</th>
+                                                            <th scope="col">GDPR</th>
                                                     </tr>
                                             </thead>
                                             <tbody>
@@ -154,6 +157,7 @@ require '../loginAdmin/adminSignup.php';
                                                                 <td><?php echo $row['email'];?></td>
                                                                 <td><?php echo $row['username'];?></td>
                                                                 <td><?php echo $row['password'];?></td>
+                                                                <td><?php echo $row['userData'];?></td>
                                                                 <td><a class="btn btn-sm btn-primary" href="edit.php?id=<?php echo $row['customerId'];?>">Edit</a> &nbsp; <a class="btn btn-sm btn-danger" href="customerDisplay.php?del=<?php echo $row['customerId'];?>">Delete</a></td>
                                                         </tr>
 

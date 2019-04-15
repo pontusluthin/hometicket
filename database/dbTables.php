@@ -1,5 +1,7 @@
 <?php
 
+//PHP code for created tables with specific foreign keyes
+
 $servername = "localhost";
 $username = "root";
 $password = "";

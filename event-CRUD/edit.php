@@ -1,5 +1,7 @@
 <?php
 
+//Edit page for events
+
 session_start();
 if(isset($_SESSION["adminUsername"]))  
 {      
@@ -28,11 +30,11 @@ if(isset($_GET['id'])){
 if(isset($_POST['submit'])){
 
     $target_dir = "http://localhost/hometicket/event-CRUD/images/";
-    $eventTitle = $_POST['eventTitle'];
-    $eventDate = $_POST['eventDate'];
+    $eventTitle = filter_input(INPUT_POST,'eventTitle', FILTER_SANITIZE_STRING);
+    $eventDate = filter_input(INPUT_POST,'eventDate', FILTER_SANITIZE_STRING);
     $eventImg = $target_dir .basename($_FILES['eventImg']['name']);
-    $eventInfo = $_POST['eventInfo'];
-    $eventPrice = $_POST['eventPrice'];
+    $eventInfo = filter_input(INPUT_POST,'eventInfo', FILTER_SANITIZE_STRING);
+    $eventPrice = filter_input(INPUT_POST,'eventPrice', FILTER_SANITIZE_STRING);
 
     if (move_uploaded_file($_FILES["eventImg"]["tmp_name"], $eventImg)) {
         echo "The file ". basename( $_FILES["eventImg"]["name"]). " has been uploaded.";

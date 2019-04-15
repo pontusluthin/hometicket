@@ -1,5 +1,7 @@
 <?php
 
+//Page to create a new order
+
 session_start();
 if(isset($_SESSION["adminUsername"]))  
 {      
@@ -23,8 +25,8 @@ if(isset($_POST['submit'])){
 
     
    
-    $date = $_POST['date'];
-    $customerId = $_POST['customerId'];
+    $date = filter_input(INPUT_POST,'date',FILTER_SANITIZE_STRING);
+    $customerId = filter_input(INPUT_POST,'customerId',FILTER_SANITIZE_STRING);
 
   
     $fields = [

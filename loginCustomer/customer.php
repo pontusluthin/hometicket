@@ -4,6 +4,7 @@
 $dbobject = new DBConnect(); 
 $pdo = $dbobject->pdo; 
 
+//customer signup function
 if(isset($_POST['signupCustomerBtn'])){
         $firstName = filter_input(INPUT_POST,'firstname',FILTER_SANITIZE_STRING);
         $lastName = filter_input(INPUT_POST,'lastname', FILTER_SANITIZE_STRING);
@@ -14,10 +15,11 @@ if(isset($_POST['signupCustomerBtn'])){
         $phone = filter_input(INPUT_POST, 'phone', FILTER_SANITIZE_STRING);
         $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
         $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+        $userData = filter_input(INPUT_POST, 'userData', FILTER_SANITIZE_STRING);
        
     
     
-        $signup = "INSERT INTO Customers(firstName, lastName, adress, zip_code, city, email, phone, username, password) VALUES ('$firstName', '$lastName', '$address', '$zip_code', '$city', '$email', '$phone', '$username', '$password')";
+        $signup = "INSERT INTO Customers(firstName, lastName, adress, zip_code, city, email, phone, username, password, userData) VALUES ('$firstName', '$lastName', '$address', '$zip_code', '$city', '$email', '$phone', '$username', '$password', '$userData')";
         $statement = $pdo->prepare($signup);
         $statement->execute(); 
     
@@ -27,6 +29,7 @@ if(isset($_POST['signupCustomerBtn'])){
         }
     
 
+          //customer login function
 if(isset($_POST['loginCustomerBtn'])) {
         if(empty($_POST["username"]) || empty($_POST["password"]))  
         {  

@@ -29,6 +29,8 @@ require('includes/ShowEvents.php');
     <link rel="stylesheet" type="text/css" media="screen" href="bootstrap.css">
 </head>
 <body>
+
+<!--error message function if user types in wrong login details-->
 <?php  
                 if(isset($message))  
                 {  
@@ -67,6 +69,7 @@ require('includes/ShowEvents.php');
   </div>
 </div>
 
+<!--Admin modal login form-->
 <div class="modal fade" id="adminlogin" tabindex="-1" role="dialog" aria-labelledby="adminlogin" aria-hidden="true">
   <div class="modal-dialog modal-dialog" role="document">
     <div class="modal-content align-items-center">
@@ -93,6 +96,7 @@ require('includes/ShowEvents.php');
   </div>
 </div>
 
+<!--Customer modal signup form-->
 <div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="signup" aria-hidden="true">
   <div class="modal-dialog modal-dialog" role="document">
     <div class="modal-content align-items-center">
@@ -132,6 +136,8 @@ require('includes/ShowEvents.php');
                         <input type="text" name="username" ><br>
                         Password:<br>
                         <input type="password" name="password"><br>
+                        Need to confirm GDPR:<br>
+                        <input type="checkbox" name="userData" value="Yes"><br>
 
                         <div class="modal-footer">
                         <input type="submit" class="btn btn-primary loginButton" value="Signup" name="signupCustomerBtn">
@@ -149,7 +155,7 @@ require('includes/ShowEvents.php');
 </div>
 
 
-<!--Shopping cart-->
+<!--Shopping cart modal-->
 <div class="modal fade" id="shoppingcartmodal" tabindex="-1" role="dialog" aria-labelledby="shoppingcartmodal" aria-hidden="true">
   <div class="modal-dialog" role="document" style="    margin: 0;
     float: right;
@@ -163,6 +169,7 @@ require('includes/ShowEvents.php');
       </div>
       <div class="modal-body" id="eventAdd">
 
+                <!---Reading all cookies to cart-->
                 <?php echo $_COOKIE['cart']?>
         
       </div>
@@ -176,6 +183,8 @@ require('includes/ShowEvents.php');
         
         <header class="mainHeader d-flex justify-content-center row align-items-center">
                 <img class="logo" src="img/hometicketLogo.png" alt="">
+
+                <!--Main menu-->
                 <nav class="mainNav d-flex justify-content-center">
                         <a href="#" class="textLinks">Home</a>
                         <a href="events/events.php" class="textLinks">Events</a>
@@ -185,17 +194,9 @@ require('includes/ShowEvents.php');
                         <a href="#" class="magnifierLink"><img src="img/magnifier.png" class="magnifierImg" alt=""></a>
                         <a href="#"  class="favoriteLink"><img src="img/favorite-heart-button.png" class="favoriteImg" alt=""></a>
                         <a  id="cartBtn" class="cartLink" data-toggle="modal" data-target="#shoppingcartmodal"><img src="img/cart-icon.png" class="cartImg" alt=""></a>
-                </nav>
-
-                <!-- Button trigger modal -->
-
-
-
-               
+                </nav>               
                
         </header>
-
-       
 
         <section class="searchField">
                 
@@ -218,16 +219,12 @@ require('includes/ShowEvents.php');
                                
                                 
                         ?>
-                              
+                              <!--Section that display stored events from database-->
                                 <section class="event-design">
                                         <div class="eventId"><?php echo $row['eventId'];?></div>
                                         <div class="eventTitle arrayinfo"><?php echo $row['eventTitle'];?></div>
                                         <div class="eventPrice"><?php echo $row['eventDate'];?></div>
-                                        <div>
-                                                <img class="eventImg" 
-                                                src="<?php echo $row["eventImg"];?>"
-                                                />
-                                        </div>
+                                        <div><img class="eventImg" src="<?php echo $row["eventImg"];?>"/></div>
                                         <div class="eventPrice"> From <span class="eventPriceToCart arrayinfo"> <?php echo $row['eventPrice'];?></span> SEK</div>
                                         <button id="buyButton_<?php echo $row['eventId']; ?>" class="buyButton">BUY TICKETS</button>
                                 </section>
@@ -238,6 +235,7 @@ require('includes/ShowEvents.php');
                         }
                         ?>
 
+                        <!--Json data for product cart-->
                        <textarea name="" id="json_data" cols="30" rows="10"><?php echo $json?></textarea>
                      </div>
 

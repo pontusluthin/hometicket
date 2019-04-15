@@ -1,5 +1,7 @@
 <?php
 
+//event page where all events will be displayed
+
 include 'ShowAllEvents.php'; 
 
 

@@ -1,5 +1,6 @@
 <?php
 
+//admin user main page
 session_start();  
 if(isset($_SESSION["adminUsername"]))  
 {      

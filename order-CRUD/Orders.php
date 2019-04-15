@@ -33,10 +33,8 @@ class Orders{
             
         }
 
+        //Function to insert new orders
         public function insert($fields){
-
-                //Insert new data into events
-                //"INSERT INTO Events (eventTitle, eventImg, eventInfo, eventPrice) VALUES (:eventTitle, :eventImg, :eventInfo, :eventPrice)";
 
             $implodeColumns = implode(',', array_keys($fields));
             $implodePlaceholder = implode(", :", array_keys($fields));
@@ -57,6 +55,7 @@ class Orders{
                 }
         }
 
+        //Function to select specific order to edit
         public function selectOne($id)
         {
             $sql = "SELECT * FROM Orders WHERE orderId = :orderId";
@@ -69,6 +68,7 @@ class Orders{
             
         }
 
+        //Function to proceed and confirm edit on specific order
         public function update($fields, $id){
 
             $st = ""; 
@@ -106,6 +106,7 @@ class Orders{
 
         }
 
+        //Function to delete specific order on delete click
         public function delete ($id){
             $sql = "DELETE FROM Orders WHERE orderId = :orderId";
 

@@ -1,6 +1,6 @@
 <?php
 
-
+//Database connection
 class DBConnect {
     private $host = "localhost";
     private $database   = "hometicket";
@@ -9,6 +9,7 @@ class DBConnect {
     private $charset = "utf8mb4";
     public $pdo;
 
+    //Connect function to connect to database
     public function __construct() {
         $dsn = "mysql:host=$this->host;dbname=$this->database;charset=$this->charset";
 

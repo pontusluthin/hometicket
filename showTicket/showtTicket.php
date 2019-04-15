@@ -1,5 +1,7 @@
 <?php
 
+//shis page is to search a valid ticket or see if ticket is valid
+
 include('Search.php');
 $search= new Search();
 

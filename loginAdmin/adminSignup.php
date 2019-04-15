@@ -3,6 +3,7 @@
 $dbobject = new DBConnect(); 
 $pdo = $dbobject->pdo; 
 
+//function to signup a new admin user
 if(isset($_POST['signupAdminBtn'])){
     $adminUsername = filter_input(INPUT_POST,'adminUsername',FILTER_SANITIZE_STRING);
     $adminPassword = filter_input(INPUT_POST,'adminPassword', FILTER_SANITIZE_STRING);

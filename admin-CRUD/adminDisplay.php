@@ -1,5 +1,6 @@
 <?php
 
+//page where all the adminusers is displayed
 session_start();  
 if(isset($_SESSION["adminUsername"]))  
 {      

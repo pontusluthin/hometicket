@@ -34,6 +34,7 @@ class Admins{
         }
 
 
+        //function to edit selected admin user 
         public function selectOne($id)
         {
             $sql = "SELECT * FROM adminLogin WHERE adminId = :adminId";
@@ -46,6 +47,7 @@ class Admins{
             
         }
 
+        //function to confirm edit on selected admin user
         public function update($fields, $id){
 
             $st = ""; 
@@ -83,6 +85,7 @@ class Admins{
 
         }
 
+        //function to delete selected admin user 
         public function delete ($id){
             $sql = "DELETE FROM adminLogin WHERE adminId = :adminId";
 

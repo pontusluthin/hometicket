@@ -2,6 +2,7 @@
 
 require_once('../dbconnect/dbconnect.php');
 
+
 class Tickets{
 
     //connection to database
@@ -33,11 +34,8 @@ class Tickets{
             
         }
 
+        //Function to insert new data into the tickets field
         public function insert($fields){
-
-                //Insert new data into events
-                //"INSERT INTO Events (eventTitle, eventImg, eventInfo, eventPrice) VALUES (:eventTitle, :eventImg, :eventInfo, :eventPrice)";
-
             $implodeColumns = implode(',', array_keys($fields));
             $implodePlaceholder = implode(", :", array_keys($fields));
 
@@ -57,6 +55,7 @@ class Tickets{
                 }
         }
 
+        //Function to display selected ticket on edit
         public function selectOne($id)
         {
             $sql = "SELECT * FROM Tickets WHERE ticketId = :ticketId";
@@ -69,6 +68,7 @@ class Tickets{
             
         }
 
+        //Function to procced edit on specific ticket
         public function update($fields, $id){
 
             $st = ""; 
@@ -106,6 +106,7 @@ class Tickets{
 
         }
 
+        //Function to delete a ticket
         public function delete ($id){
             $sql = "DELETE FROM Tickets WHERE ticketId = :ticketId";
 

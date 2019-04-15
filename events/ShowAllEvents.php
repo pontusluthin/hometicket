@@ -12,7 +12,7 @@ class ShowAllEvents{
         }
 
     //select all data from the database 
-
+        //Function to show all events on event page
         public function select(){
 
             $sql = "SELECT * FROM Events";

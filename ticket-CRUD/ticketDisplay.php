@@ -1,21 +1,27 @@
 <?php
 
 session_start();  
+
+//Session to se if admin is logged in
 if(isset($_SESSION["adminUsername"]))  
 {      
+    //if admin is logged in, display logout button/link
      $logout = '<br /><br /><a href="../loginCustomer/logout.php">Logout</a>'; 
 }  
 else  
 {  
+        //if admin is logged out, send back to startpage
      header("location:../startpage(index).php"); 
      echo "<div>Testa att logga in</div>"; 
     
 }  
 
+//function to get includes
 function __autoload($class){
         require_once "$class.php";  
 }
 
+//delete function for tickets
 if(isset($_GET['del'])){
         $id = $_GET['del'];
 
@@ -44,6 +50,7 @@ require '../loginAdmin/adminSignup.php';
 </head>
 <body>
 
+<!--Admin signup modal-->
 <div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="signup" aria-hidden="true">
   <div class="modal-dialog modal-dialog" role="document">
     <div class="modal-content align-items-center">
@@ -78,8 +85,6 @@ require '../loginAdmin/adminSignup.php';
                         <input type="submit" class="btn btn-primary loginButton" value="Signup" name="signupAdminBtn">
                         <button type="button" class="btn btn-secondary closeButton" data-dismiss="modal">Close</button>
                         </div>
-                       <!-- Agreed to our terms and conditions: 
-                        <input type="checkbox" name="customerAgree">-->
                 </form>
 
                
@@ -88,12 +93,11 @@ require '../loginAdmin/adminSignup.php';
     </div>
   </div>
 </div>
-
-
-
         
         <header class="mainHeader d-flex justify-content-center row align-items-center">
                 <img class="logo" src="../img/hometicketLogo.png" alt="">
+
+                <!--Main nav for admin user-->
                 <nav class="mainNav d-flex justify-content-center">
                         <a href="../loginAdmin/adminSite.php" class="textLinks">Home</a>
                         <a href="../event-CRUD/eventDisplay.php" class="textLinks">Edit Events</a>
@@ -103,13 +107,7 @@ require '../loginAdmin/adminSignup.php';
                         <a  href="#" data-toggle="modal" data-target="#signup">Create admin</a>
                         <?php echo $logout?>
                        
-                </nav>
-
-                <!-- Button trigger modal -->
-
-
-
-               
+                </nav>               
                
         </header>
 
@@ -133,6 +131,8 @@ require '../loginAdmin/adminSignup.php';
                                             <tbody>
                                                 
                                                 <?php
+
+                                                //Function that displays all the tickets that are ordered
                                                         $events = new Tickets(); 
 
                                                         $rows = $events->select();

@@ -1,5 +1,7 @@
 <?php
 
+//Page where are the excisting orders will be displayed 
+
 session_start();  
 if(isset($_SESSION["adminUsername"]))  
 {      

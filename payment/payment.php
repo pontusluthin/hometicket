@@ -1,5 +1,6 @@
 <?php
 
+//This is the payment site if customer have logged and want to proceed to checkout
 session_start();  
 if(isset($_SESSION["username"]))  
 {      
@@ -66,6 +67,7 @@ else
   </div>
 </div>
 
+<!--Admin modal form login-->
 <div class="modal fade" id="adminlogin" tabindex="-1" role="dialog" aria-labelledby="adminlogin" aria-hidden="true">
   <div class="modal-dialog modal-dialog" role="document">
     <div class="modal-content align-items-center">
@@ -91,6 +93,7 @@ else
   </div>
 </div>
 
+<!--Customer signup login-->
 <div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="signup" aria-hidden="true">
   <div class="modal-dialog modal-dialog" role="document">
     <div class="modal-content align-items-center">
@@ -147,7 +150,7 @@ else
 </div>
 
 
-<!--Shopping cart-->
+<!--Shopping cart modal-->
 <div class="modal fade" id="shoppingcartmodal" tabindex="-1" role="dialog" aria-labelledby="shoppingcartmodal" aria-hidden="true">
   <div class="modal-dialog" role="document" style="    margin: 0;
     float: right;
@@ -183,14 +186,7 @@ else
                         <a href="#" class="magnifierLink"><img src="../img/magnifier.png" class="magnifierImg" alt=""></a>
                         <a href="#"  class="favoriteLink"><img src="../img/favorite-heart-button.png" class="favoriteImg" alt=""></a>
                         <a  id="cartBtn" class="cartLink" data-toggle="modal" data-target="#shoppingcartmodal"><img src="../img/cart-icon.png" class="cartImg" alt=""></a>
-                       
-                </nav>
-
-                <!-- Button trigger modal -->
-
-
-
-               
+                </nav> 
                
         </header>
 
@@ -203,40 +199,10 @@ else
        
                    
 
-                        <div class="gridMain">
-                        <?php
-                                $events = new ShowEvents(); 
+                     <div class="gridMain">
 
-                                $rows = $events->select();
-                                $json = json_encode($rows);
-                                
-                                $i = 0;
-                                foreach($rows as $row){
-                                //Function that only let 8 events to be displayed on the startpage         
-                                if ($i == 8) { break; }
-                               
-                                
-                        ?>
-                              
-                                <section class="event-design">
-                                        <div class="eventId"><?php echo $row['eventId'];?></div>
-                                        <div class="eventTitle arrayinfo"><?php echo $row['eventTitle'];?></div>
-                                        <div>
-                                                <img class="eventImg" 
-                                                src="<?php echo $row["eventImg"];?>"
-                                                />
-                                        </div>
-                                        <div class="eventPrice"> From <span class="eventPriceToCart arrayinfo"><?php echo $row['eventPrice'];?></span> SEK</div>
-                                        <button id="buyButton_<?php echo $row['eventId']; ?>" class="buyButton">BUY TICKETS</button>
-                                </section>
-                        
-
-                        <?php
-                        $i++;
-                        }
-                        ?>
-
-                       <textarea name="" id="json_data" cols="30" rows="10"><?php echo $json?></textarea>
+                     <!--Here will the checkout form be displayed-->
+                       
                      </div>
 
                      

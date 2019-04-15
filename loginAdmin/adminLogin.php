@@ -4,6 +4,8 @@
 $dbobject = new DBConnect(); 
 $pdo = $dbobject->pdo; 
 
+
+//function to login a admin user
 if(isset($_POST['adminLoginBtn'])) {
      if(empty($_POST["adminUsername"]) || empty($_POST["adminPassword"]))  
      {  

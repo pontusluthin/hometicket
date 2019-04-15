@@ -1,5 +1,7 @@
 <?php
 
+//This page is to edit tickets
+
 session_start();
 if(isset($_SESSION["adminUsername"]))  
 {      
@@ -27,10 +29,7 @@ if(isset($_GET['id'])){
 
 if(isset($_POST['submit'])){
 
-   
-    $quantity = $_POST['quantity'];
-
-   
+    $quantity = filter_input(INPUT_POST,'quantity', FILTER_SANITIZE_NUMBER_INT);
 
     $fields = [
 
