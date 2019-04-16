@@ -44,9 +44,10 @@ window.onload = function(){
                 //Function that stores clicked event with title + price inb cart array
                 let itemArray = titleItem + priceItem;
                   cartDisplay.push(itemArray); 
-                let putIntoCart = "title="+ cartDisplay;
+                let putIntoCart = "cart = "+ cartDisplay;
                 document.cookie = putIntoCart;
                 
+                console.log(putIntoCart);
   
                 }
                
