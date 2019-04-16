@@ -39,7 +39,7 @@ public function searchResult(){
         }
 
         return $data; 
-
+        
         
     }
 }
