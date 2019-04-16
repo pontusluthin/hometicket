@@ -148,3 +148,27 @@ main{
             margin-bottom: 1em;
         }
 }
+
+.searchForm{
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+        .searchField{
+            outline: none;
+            border-radius: 0.2em;
+            border: 0.05em solid black;
+            margin-top: 0.1em;
+            padding: 0.5em 1em 0.5em;
+            margin-bottom: 0.5em;
+            font-size: 1.2em;
+          
+        }
+
+        .searchButton{
+            margin-bottom: 2em;
+        }
+}

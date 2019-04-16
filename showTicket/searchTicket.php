@@ -1,18 +1,6 @@
-<?php
 
+<?php include '../dbconnect/dbconnect.php' ?>
 
-session_start(); 
-
-
-    
-
-require 'dbconnect/dbconnect.php';
-require 'loginCustomer/customer.php'; 
-require 'loginAdmin/adminLogin.php';
-require('includes/ShowEvents.php'); 
-
-
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,19 +12,12 @@ require('includes/ShowEvents.php');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>HomeTicket - Events for all</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/main.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" media="screen" href="bootstrap.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="../bootstrap.css">
 </head>
 <body>
 
-<!--error message function if user types in wrong login details-->
-<?php  
-                if(isset($message))  
-                {  
-                     echo '<label class="text-danger">'.$message.'</label>';  
-                }  
-        ?> 
  
 
 <!-- Customer modal login form-->
@@ -69,7 +50,7 @@ require('includes/ShowEvents.php');
   </div>
 </div>
 
-<!--Admin modal login form-->
+<!--Admin modal form login-->
 <div class="modal fade" id="adminlogin" tabindex="-1" role="dialog" aria-labelledby="adminlogin" aria-hidden="true">
   <div class="modal-dialog modal-dialog" role="document">
     <div class="modal-content align-items-center">
@@ -79,24 +60,23 @@ require('includes/ShowEvents.php');
       </div>
       <div class="modal-body">
 
-                <form action="" method="post">
+                <form action="">
                         Admin Username:<br>
-                        <input type="text" name="adminUsername"><br>
+                        <input type="text"><br>
                         Admin Password:<br>
-                        <input type="password" name="adminPassword">
-
-                        <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary closeButton" data-dismiss="modal">Close</button>
-                                <input type="submit" class="btn btn-primary loginButton" value="Login" name="adminLoginBtn">
-                        </div>
+                        <input type="password">
                 </form>
 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary closeButton" data-dismiss="modal">Close</button>
+        <input type="submit" class="btn btn-primary loginButton" value="Login">
       </div>
     </div>
   </div>
 </div>
 
-<!--Customer modal signup form-->
+<!--Customer signup login-->
 <div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="signup" aria-hidden="true">
   <div class="modal-dialog modal-dialog" role="document">
     <div class="modal-content align-items-center">
@@ -107,15 +87,6 @@ require('includes/ShowEvents.php');
       <div class="modal-body">
 
 
-                <?php if (isset($_SESSION['message'])):?>
-
-                <div class="alert alert-<?=$_SESSION['msg_type']?>">
-                <?php 
-                        echo $_SESSION['message'];
-                        unset($_SESSION['message']);
-                ?>
-                </div>
-                <?php endif ?>
                 
                 <form  class="signupForm" method="post">
                         First Name <br>
@@ -136,8 +107,6 @@ require('includes/ShowEvents.php');
                         <input type="text" name="username" ><br>
                         Password:<br>
                         <input type="password" name="password"><br>
-                        Need to confirm GDPR:<br>
-                        <input type="checkbox" name="userData" value="Yes"><br>
 
                         <div class="modal-footer">
                         <input type="submit" class="btn btn-primary loginButton" value="Signup" name="signupCustomerBtn">
@@ -169,76 +138,70 @@ require('includes/ShowEvents.php');
       </div>
       <div class="modal-body" id="eventAdd">
 
-                <!---Reading all cookies to cart-->
-                <?php echo $_COOKIE['cart']?>
-        
+      <!---Reading all cookies to cart-->
+      <?php echo $_COOKIE['cart']?>
+         
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary closeButton" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary loginButton"><a href="payment/payment.php">Checkout</a></button>
+        <input type="submit" class="btn btn-primary loginButton" value="Checkout">
       </div>
     </div>
   </div>
 </div>
         
         <header class="mainHeader d-flex justify-content-center row align-items-center">
-                <img class="logo" src="img/hometicketLogo.png" alt="">
-
-                <!--Main menu-->
+                <img class="logo" src="../img/hometicketLogo.png" alt="">
                 <nav class="mainNav d-flex justify-content-center">
-                        <a href="#" class="textLinks">Home</a>
-                        <a href="events/events.php" class="textLinks">Events</a>
+                        <a href="../startpage(index).php" class="textLinks">Home</a>
+                        <a href="../events/events.php" class="textLinks">Events</a>
                         <a  href="#" data-toggle="modal" data-target="#loginmodal">Login/Create account</a>
                         <a href="#" class="textLinks">About</a>
-                        <a href="showTicket/showTicket.php">Validate/Show ticket</a>
-                        <a href="showTicket/searchTicket.php">Check validation</a>
-                        <a href="#" class="magnifierLink"><img src="img/magnifier.png" class="magnifierImg" alt=""></a>
-                        <a href="#"  class="favoriteLink"><img src="img/favorite-heart-button.png" class="favoriteImg" alt=""></a>
-                        <a  id="cartBtn" class="cartLink" data-toggle="modal" data-target="#shoppingcartmodal"><img src="img/cart-icon.png" class="cartImg" alt=""></a>
-                </nav>               
+                        <a href="../showTicket/showTicket.php">Validate/Show ticket</a>
+                        <a href="../loginCustomer/logout.php">Logout</a>
+                        <a href="#" class="magnifierLink"><img src="../img/magnifier.png" class="magnifierImg" alt=""></a>
+                        <a href="#"  class="favoriteLink"><img src="../img/favorite-heart-button.png" class="favoriteImg" alt=""></a>
+                        <a  class="cartLink" data-toggle="modal" data-target="#shoppingcartmodal"><img id="cartBtn" src="../img/cart-icon.png" class="cartImg" alt=""></a>
+                </nav> 
                
         </header>
+
+       
 
         <section class="searchField">
                 
         </section>
-        <main class="d-flex justify-content-center align-items-center">
+        <main class="d-flex align-items-center flex-column mainTop">
        
-                   
-
-                        <div class="gridMain">
-                        <?php
-                                $events = new ShowEvents(); 
-
-                                $rows = $events->select();
-                                $json = json_encode($rows);
-                                
-                                $i = 0;
-                                foreach($rows as $row){
-                                //Function that only let 8 events to be displayed on the startpage         
-                                if ($i == 8) { break; }
-                               
-                                
-                        ?>
-                              <!--Section that display stored events from database-->
-                                <section class="event-design">
-                                        <div class="eventId"><?php echo $row['eventId'];?></div>
-                                        <div class="eventTitle arrayinfo"><?php echo $row['eventTitle'];?></div>
-                                        <div class="eventPrice"><?php echo $row['eventDate'];?></div>
-                                        <div><img class="eventImg" src="<?php echo $row["eventImg"];?>"/></div>
-                                        <div class="eventPrice"><span class="eventPriceToCart arrayinfo"> <?php echo $row['eventPrice'];?></span> SEK</div>
-                                        <button id="buyButton_<?php echo $row['eventId']; ?>" class="buyButton">BUY TICKETS</button>
-                                </section>
+                        <h3>Check ticket validation</h3>
+                       
+                    <form method="POST" class="searchForm">
                         
+                        <input class="searchField" type="text" name="search" placeholder="Search here">
+                       
+                        <input class="btn btn-primary loginButton searchButton" type="submit" name="action" value="Search">
 
-                        <?php
-                        $i++;
+                    <form>
+
+                    <h5>Results:</h5>
+
+                    <?php
+
+                        $dbobject = new DBConnect(); 
+                        $pdo = $dbobject->pdo; 
+                    if (isset($_POST['action'])) {
+                        $searchterm = filter_input(INPUT_POST, 'search', FILTER_SANITIZE_STRING);
+                        $query = "SELECT * FROM Tickets WHERE ticketId LIKE '%$searchterm%'";
+                        $results = $pdo->query($query);
+                        //print_r($results);
+                        while($rows = $results->fetch()) {
+                        echo 'Ticket ID: ' . $rows['ticketId'] . ' <br> Valid status: ' . $rows['validation'] . '<br>';
                         }
-                        ?>
+                    }
+                    ?>
 
-                        <!--Json data for product cart-->
-                       <textarea name="" id="json_data" cols="30" rows="10"><?php echo $json?></textarea>
-                     </div>
+
+                                
 
                      
         </main>
@@ -333,7 +296,7 @@ require('includes/ShowEvents.php');
                         <div class="footerInfo-item story">
                                 <h3>Our Story</h3>
                                 <p>HomeTicket was founded in the beginning of 2019 by a travelling entrepreneur. The traveller went to a couple of the biggest music shows and festivals in the world.</p>
-                                <img src="img/hometicket-black.png" alt="">
+                                <img src="../img/hometicket-black.png" alt="">
                         </div>
                         <div class="footerInfo-item">
                                 <h3>Help</h3>
@@ -356,7 +319,7 @@ require('includes/ShowEvents.php');
                 <p class="copyright">HomeTicket Sweden AB © 2019 | <a href="#">Terms</a> | <a href="#">Cookies</a> | <a href="#">About</a></p>
         </footer>
   <div id="jsonTest"></div>
-    <script src="main.js"></script>
+    <script src="../main.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
