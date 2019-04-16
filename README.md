@@ -16,6 +16,11 @@ Functions included:
 - Beginning of a cart and order flow (still some issues to fix)
 
 
+NOTICE!: 
+You have to be logged in as admin to se adminPage
+You have to be logged in as customer to checkout and validate. 
+
+
 Test customer login: 
 Username: micke 
 Password: teacher1
