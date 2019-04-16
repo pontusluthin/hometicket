@@ -3,6 +3,8 @@ window.onload = function(){
 
   let cart = [];
   let cartDisplay = [];
+  console.log(cartDisplay);
+  
   
  
   /*let addedCartItem = document.createElement("DIV");*/
@@ -53,63 +55,17 @@ window.onload = function(){
                 /*let cookievalue = document.cookie =  JSON.stringify(cart);*/
 
                 let titleItem = cartitem['title'];
-                let priceItem = cartitem['price'];
+                let priceItem =  cartitem['price'];
 
                
 
                 let itemArray = titleItem + priceItem;
                   cartDisplay.push(itemArray); 
-                let putIntoCart = "cart="+ cartDisplay;
+                let putIntoCart = "title="+ cartDisplay;
+                document.cookie = putIntoCart;
                 
-                document.cookie = putIntoCart; 
-               
-                console.log(cartDisplay);
-               
-               
-
-              
-
-              
-                
-               /* addedCartItem.innerHTML = cartData;  
-                document.getElementById("eventAdd").appendChild(addedCartItem);*/
-
-
-                
-                /*var titles = cart.map(function(cart) {
-                  return cart['title'];
-
-                });*/
-
-
-                
-
-                
-
-
-              
-                
-                
-//                let addEvents = data; 
-//                let buyEvent = JSON.stringify(addEvents);
-                
-
-
-
-                /*let addedPrice = document.createElement("DIV");
-                addedPrice.innerHTML = price;  
-                document.getElementById("eventAdd").appendChild(addedPrice); */
-               
-                
-                /*cookievalue.toString();
-                document.getElementById("eventAdd").innerHTML = cookievalue;
-               cookievalue.style.display = 'block';*/
-               
-
-
-              }
-              
-              
+  
+                }
                
               
             }
@@ -120,8 +76,13 @@ window.onload = function(){
        
       }
 
-      
+      document.getElementById("cartBtn").addEventListener('click', function (event){
+        
+        
 
+
+
+      });
 
   $('#myModal').on('shown.bs.modal', function () {
     $('#myInput').trigger('focus')

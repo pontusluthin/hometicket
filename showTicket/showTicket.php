@@ -228,6 +228,8 @@ include 'Search.php';
                                                         $rows = $orders->searchResult();
                                                         
                                                         foreach($rows as $row){
+                                                                 //setting error report to none just to make sure we dont get an error if there is no orders 
+                                                                 error_reporting(0);
                                                                 
                                                         ?>
                                                         <tr>
@@ -284,9 +286,10 @@ include 'Search.php';
                                                         $tickets = new Search(); 
 
                                                         $rows = $tickets->validTickets();
-                                                        
+                                                       
                                                         foreach($rows as $row){
-                                                                
+                                                                //setting error report none just to make sure we dont get an error if 'not valid' or 'valid' tickets are there 
+                                                                error_reporting(0);
                                                         ?>
                                                         <tr>
                                                                 <th scope="row"><?php echo $row['ticketId'];?></th>
@@ -299,6 +302,7 @@ include 'Search.php';
                                                         <?php
 
                                                         }
+                                                        
                                                         ?>
 
                                     

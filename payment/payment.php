@@ -164,7 +164,9 @@ else
       </div>
       <div class="modal-body" id="eventAdd">
 
-        
+      <!---Reading all cookies to cart-->
+      <?php echo $_COOKIE['cart']?>
+         
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary closeButton" data-dismiss="modal">Close</button>
@@ -185,7 +187,7 @@ else
                         <a href="../loginCustomer/logout.php">Logout</a>
                         <a href="#" class="magnifierLink"><img src="../img/magnifier.png" class="magnifierImg" alt=""></a>
                         <a href="#"  class="favoriteLink"><img src="../img/favorite-heart-button.png" class="favoriteImg" alt=""></a>
-                        <a  id="cartBtn" class="cartLink" data-toggle="modal" data-target="#shoppingcartmodal"><img src="../img/cart-icon.png" class="cartImg" alt=""></a>
+                        <a  class="cartLink" data-toggle="modal" data-target="#shoppingcartmodal"><img id="cartBtn" src="../img/cart-icon.png" class="cartImg" alt=""></a>
                 </nav> 
                
         </header>
@@ -195,15 +197,78 @@ else
         <section class="searchField">
                 
         </section>
-        <main class="d-flex justify-content-center align-items-center">
+        <main class="d-flex align-items-center flex-column mainTop">
        
-                   
+                        <h1>Checkout</h1>
 
-                     <div class="gridMain">
+
 
                      <!--Here will the checkout form be displayed-->
+                      <!---Reading all cookies to cart-->
+                        <?php echo isset($_COOKIE['cart']);
+                                 ?>
+
                        
-                     </div>
+        <form method="post">
+
+        <?php /*foreach($rows as $row)*/
+                ?>
+                <div class="form-row">
+                        <div class="form-group col-md-15 d-flex flex-row">
+                                <div class="d-flex flex-column">
+                                        <label for="firstName">Title</label>
+                                        <input type="text" class="titleInput" id="firstNameInput" name="firstName" readonly>
+                                </div>
+                                <div class="d-flex flex-column">
+                                        <label for="lastName">Price</label>
+                                        <input type="text" class="priceInput" id="lastNameInput" name="lastName" readonly> 
+                                </div>
+                        </div>
+                </div>
+        <?php
+                /*}*/
+        ?>
+
+                <div class="form-row">
+                        <div class="form-group col-md-6">
+                                <label for="firstName">Firstname</label>
+                                <input type="email" class="form-control" id="firstName" name="firstName">
+                        </div>
+                        <div class="form-group col-md-6">
+                                <label for="lastName">Lastname</label>
+                                <input type="text" class="form-control" id="lastName" name="lastName">
+                        </div>
+                </div>
+                <div class="form-group">
+                        <label for="adress">Address</label>
+                        <input type="text" class="form-control" id="adress" name="adress">
+                </div>
+                <div class="form-row">
+                        <div class="form-group col-md-6">
+                                <label for="city">City</label>
+                                <input type="text" class="form-control" id="city" name="city">
+                        </div>
+                        <div class="form-group col-md-5">
+                                <label for="zip_code">Zip</label>
+                                <input type="text" class="form-control" id="zip_code" name="zip_code">
+                        </div>
+                </div>
+                <div class="form-group">
+                        <label for="adress">Email</label>
+                        <input type="email" class="form-control" id="adress" name="adress">
+                </div>
+                <div class="form-group">
+                <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="gridCheck">
+                <label class="form-check-label" for="gridCheck">
+                        Check me out
+                </label>
+                </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Confirm order</button>
+        </form>
+
+                                
 
                      
         </main>

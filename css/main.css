@@ -322,3 +322,13 @@ main {
 
 .notValidColor {
   color: red; }
+
+.titleInput, .priceInput {
+  outline: none;
+  border: none;
+  background-color: whitesmoke; }
+
+.mainTop {
+  padding-top: 10em; }
+  .mainTop h1 {
+    margin-bottom: 1em; }
