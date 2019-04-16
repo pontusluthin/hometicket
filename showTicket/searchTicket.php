@@ -174,7 +174,7 @@
         <main class="d-flex align-items-center flex-column mainTop">
        
                         <h3>Check ticket validation</h3>
-                       
+                       <!--Search form for valid tickets-->
                     <form method="POST" class="searchForm">
                         
                         <input class="searchField" type="text" name="search" placeholder="Search here">
@@ -186,9 +186,11 @@
                     <h5>Results:</h5>
 
                     <?php
-
+        
                         $dbobject = new DBConnect(); 
                         $pdo = $dbobject->pdo; 
+
+                        //Function to search valid tickets 
                     if (isset($_POST['action'])) {
                         $searchterm = filter_input(INPUT_POST, 'search', FILTER_SANITIZE_STRING);
                         $query = "SELECT * FROM Tickets WHERE ticketId LIKE '%$searchterm%'";
@@ -200,10 +202,6 @@
                     }
                     ?>
 
-
-                                
-
-                     
         </main>
         
 

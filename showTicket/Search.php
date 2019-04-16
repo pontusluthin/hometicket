@@ -73,6 +73,7 @@ public function searchResult(){
                 }
             }
 
+            //Function that display not valid tickets on same order. If a customer have used one ticket to the event
             public function notValidTickets(){
                 require('../loginCustomer/customer.php');
                 $query =  "SELECT Tickets.ticketId, Events.eventTitle, Events.eventPrice,Events.eventDate, Tickets.validation FROM Tickets

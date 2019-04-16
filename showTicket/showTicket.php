@@ -204,6 +204,7 @@ include 'Search.php';
        
                    
                         <div class="container orderCon">
+                                <!-- Table to show orders on specific logged in customer -->
                                 <table class="table">
                                             <thead>
                                                     <tr>
@@ -268,6 +269,7 @@ include 'Search.php';
       <div class="modal-body">
 
       <div class="container">
+              <!-- Table to show tickets connected to specific event in that order clicking more info on tickets, this shows valid tickets -->
                                 <table class="table">
                                             <thead>
                                                     <tr>
@@ -311,6 +313,8 @@ include 'Search.php';
                         </div>
 
                         <div class="container">
+
+                <!-- Table to show tickets connected to specific event in that order clicking more info on tickets, this shows not valid tickets -->
                                 <table class="table">
                                             <thead>
                                                     <tr>
