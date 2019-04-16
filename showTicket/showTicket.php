@@ -1,15 +1,28 @@
 <?php
 
-//event page where all events will be displayed
+//This is the payment site if customer have logged and want to proceed to checkout
+session_start();  
+if(isset($_SESSION["username"]))  
+{      
+     $logout = '<br /><br /><a href="../loginCustomer/logout.php">Logout</a>'; 
+}  
+else  
+{  
+     header("location:../startpage(index).php");  
+     
+    
+}
 
-include 'ShowAllEvents.php'; 
+include 'Search.php';
 
 
 
-?>
+?>  
 <!DOCTYPE html>
 <html>
 <head>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
     <link href="https://fonts.googleapis.com/css?family=Staatliches" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
     <meta charset="utf-8">
@@ -18,11 +31,9 @@ include 'ShowAllEvents.php';
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="../css/main.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="../main.js"></script>
     <link rel="stylesheet" type="text/css" media="screen" href="../bootstrap.css">
 </head>
 <body>
-
 <?php  
                 if(isset($message))  
                 {  
@@ -61,6 +72,7 @@ include 'ShowAllEvents.php';
   </div>
 </div>
 
+<!--Admin modal form login-->
 <div class="modal fade" id="adminlogin" tabindex="-1" role="dialog" aria-labelledby="adminlogin" aria-hidden="true">
   <div class="modal-dialog modal-dialog" role="document">
     <div class="modal-content align-items-center">
@@ -86,6 +98,7 @@ include 'ShowAllEvents.php';
   </div>
 </div>
 
+<!--Customer signup login-->
 <div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="signup" aria-hidden="true">
   <div class="modal-dialog modal-dialog" role="document">
     <div class="modal-content align-items-center">
@@ -142,7 +155,7 @@ include 'ShowAllEvents.php';
 </div>
 
 
-<!--Shopping cart-->
+<!--Shopping cart modal-->
 <div class="modal fade" id="shoppingcartmodal" tabindex="-1" role="dialog" aria-labelledby="shoppingcartmodal" aria-hidden="true">
   <div class="modal-dialog" role="document" style="    margin: 0;
     float: right;
@@ -155,9 +168,7 @@ include 'ShowAllEvents.php';
         
       </div>
       <div class="modal-body" id="eventAdd">
-              
-  <!---Reading all cookies to cart-->
-  <?php echo $_COOKIE['cart']?>
+
         
       </div>
       <div class="modal-footer">
@@ -172,55 +183,180 @@ include 'ShowAllEvents.php';
                 <img class="logo" src="../img/hometicketLogo.png" alt="">
                 <nav class="mainNav d-flex justify-content-center">
                         <a href="../startpage(index).php" class="textLinks">Home</a>
-                        <a href="events.php" class="textLinks">Events</a>
+                        <a href="../events/events.php" class="textLinks">Events</a>
                         <a  href="#" data-toggle="modal" data-target="#loginmodal">Login/Create account</a>
                         <a href="#" class="textLinks">About</a>
-                        <a href="../showTicket/showTicket.php">Validate/Show ticket</a>
+                        <a href="">Validate/Show ticket</a>
+                        <a href="../loginCustomer/logout.php">Logout</a>
                         <a href="#" class="magnifierLink"><img src="../img/magnifier.png" class="magnifierImg" alt=""></a>
                         <a href="#"  class="favoriteLink"><img src="../img/favorite-heart-button.png" class="favoriteImg" alt=""></a>
                         <a  id="cartBtn" class="cartLink" data-toggle="modal" data-target="#shoppingcartmodal"><img src="../img/cart-icon.png" class="cartImg" alt=""></a>
-                </nav>
-
-                <!-- Button trigger modal -->
-
-
-
-               
+                </nav> 
                
         </header>
 
-                <h1 class="mainTitle">ALL EVENTS</h1>
-        <main class="d-flex justify-content-center align-items-center mainAllEvents">
        
-                        
 
-                        <div class="gridMain">
-                        <?php
-                                $events = new ShowAllEvents(); 
+        <section class="searchField">
+                
+        </section>
+        <main class="d-flex justify-content-center align-items-center">
+       
+                   
+                        <div class="container orderCon">
+                                <table class="table">
+                                            <thead>
+                                                    <tr>
+                                                            <th scope="col">Order ID</th>
+                                                            <th scope="col">Date</th>
+                                                            <th scope="col">Customer ID</th>
+                                                            <th scope="col">First Name</th>
+                                                            <th scope="col">Last Name</th>
+                                                            <th scope="col">Event Title</th>
+                                                            <th scope="col">Event Price</th>
+                                                            <th scope="col">Event Date</th>
+                                                            <th scope="col">Tickets</th>
+                                                           
 
-                                $rows = $events->select();
-                                $json = json_encode($rows);
-                                
-                                foreach($rows as $row){
-                                //Function that only let 8 events to be displayed on the startpage         
-                                
-                        ?>
-                        
-                                <section class="event-design">
-                                <div class="eventTitle arrayinfo"><?php echo $row['eventTitle'];?></div>
-                                <div class="eventPrice"><?php echo $row['eventDate'];?></div>
-                                <div><img class="eventImg" src="<?php echo $row["eventImg"];?>"/></div>
-                                <div class="eventPrice"><span class="eventPriceToCart arrayinfo"><?php echo $row['eventPrice'];?></span> SEK</div>
-                                <button id="buyButton_<?php echo $row['eventId']; ?>" class="buyButton">BUY TICKETS</button>
-                                </section>
-                        
+                                                    </tr>
+                                            </thead>
+                                            <tbody>
+                                                
+                                                <?php
+                                                        $orders = new Search(); 
 
-                        <?php
-                       
-                        }
-                        ?>
-                          <textarea name="" id="json_data" cols="30" rows="10"><?php echo $json?></textarea>
-                     </div>
+                                                        $rows = $orders->searchResult();
+                                                        
+                                                        foreach($rows as $row){
+                                                                
+                                                        ?>
+                                                        <tr>
+                                                                <th scope="row"><?php echo $row['orderId'];?></th>
+                                                                <td><?php echo $row['date'];?></td>
+                                                                <td><?php echo $row['customerId'];?></td>
+                                                                <td><?php echo $row['firstName'];?></td>
+                                                                <td><?php echo $row['lastName'];?></td>
+                                                                <td><?php echo $row['eventTitle'];?></td>
+                                                                <td><?php echo $row['eventPrice'];?></td>
+                                                                <td><?php echo $row['eventDate'];?></td>
+                                                                <td><a data-toggle="modal" data-target="#exampleModal" href="">More Info</a></td>
+                                                        </tr>
+
+                                                        <?php
+
+                                                        }
+                                                        ?>
+                                    
+                                            </tbody>
+                                    </table>
+                        </div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content ticketModal">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Tickets</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="ticketExplainText">This page is showing the valid tickets and used non valid tickets</div>
+      <div class="modal-body">
+
+      <div class="container">
+                                <table class="table">
+                                            <thead>
+                                                    <tr>
+                                                            <th scope="col">Ticket ID</th>
+                                                            <th scope="col">Event Title</th>
+                                                            <th scope="col">Event Price</th>
+                                                            <th scope="col">Event Date</th>
+                                                            <th scope="col">Status(<span class="validColor">valid</span>)</th>
+                                                           
+
+                                                    </tr>
+                                            </thead>
+                                            <tbody>
+                                                
+                                                <?php
+                                                        $tickets = new Search(); 
+
+                                                        $rows = $tickets->validTickets();
+                                                        
+                                                        foreach($rows as $row){
+                                                                
+                                                        ?>
+                                                        <tr>
+                                                                <th scope="row"><?php echo $row['ticketId'];?></th>
+                                                                <td><?php echo $row['eventTitle'];?></td>
+                                                                <td><?php echo $row['eventPrice'];?></td>
+                                                                <td><?php echo $row['eventDate'];?></td>
+                                                                <td><?php echo $row['validation'];?></td>
+                                                        </tr>
+
+                                                        <?php
+
+                                                        }
+                                                        ?>
+
+                                    
+                                            </tbody>
+                                    </table>
+                        </div>
+
+                        <div class="container">
+                                <table class="table">
+                                            <thead>
+                                                    <tr>
+                                                            <th scope="col">Ticket ID</th>
+                                                            <th scope="col">Event Title</th>
+                                                            <th scope="col">Event Price</th>
+                                                            <th scope="col">Event Date</th>
+                                                            <th scope="col">Status(<span class="notValidColor">not valid</span>)</th>
+                                                           
+
+                                                    </tr>
+                                            </thead>
+                                            <tbody>
+                                                
+                                                <?php
+                                                        $tickets = new Search(); 
+
+                                                        $rows = $tickets->notValidTickets();
+                                                        
+                                                        foreach($rows as $row){
+                                                                
+                                                        ?>
+                                                        <tr>
+                                                                <th scope="row"><?php echo $row['ticketId'];?></th>
+                                                                <td><?php echo $row['eventTitle'];?></td>
+                                                                <td><?php echo $row['eventPrice'];?></td>
+                                                                <td><?php echo $row['eventDate'];?></td>
+                                                                <td><?php echo $row['validation'];?></td>
+                                                        </tr>
+
+                                                        <?php
+
+                                                        }
+                                                        ?>
+
+                                    
+                                            </tbody>
+                                    </table>
+                        </div>
+        
+      </div>
+      <div class="modal-footer">
+     
+      </div>
+
+    </div>
+  </div>
+</div>
+
+                     
         </main>
         
 
@@ -235,10 +371,10 @@ include 'ShowAllEvents.php';
                                         <button type="submit">Subscribe</button>
                                 </form>
                                 <section>
-                                        <a href="#"><img src="../img/facebook.png" alt=""></a>
-                                        <a href="#"><img src="../img/instagram.png" alt=""></a>
-                                        <a href="#"><img src="../img/youtube.png" alt=""></a>
-                                        <a href="#"><img src="../img/linkedin.png" alt=""></a>
+                                        <a href="#"><img src="img/facebook.png" alt=""></a>
+                                        <a href="#"><img src="img/instagram.png" alt=""></a>
+                                        <a href="#"><img src="img/youtube.png" alt=""></a>
+                                        <a href="#"><img src="img/linkedin.png" alt=""></a>
                                 </section>
                                 <a href="#">#HomeTicket</a>
                         </div>
@@ -335,8 +471,8 @@ include 'ShowAllEvents.php';
                 </section>
                 <p class="copyright">HomeTicket Sweden AB © 2019 | <a href="#">Terms</a> | <a href="#">Cookies</a> | <a href="#">About</a></p>
         </footer>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <div id="jsonTest"></div>
+    <script src="../main.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 

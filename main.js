@@ -3,6 +3,7 @@ window.onload = function(){
 
   let cart = [];
   let cartDisplay = [];
+  
  
   /*let addedCartItem = document.createElement("DIV");*/
   // läs in från cookie
@@ -62,7 +63,7 @@ window.onload = function(){
                 
                 document.cookie = putIntoCart; 
                
-
+                console.log(cartDisplay);
                
                
 
@@ -128,6 +129,7 @@ window.onload = function(){
 
 
 
+  
      
 
       

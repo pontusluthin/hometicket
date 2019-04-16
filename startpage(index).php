@@ -225,7 +225,7 @@ require('includes/ShowEvents.php');
                                         <div class="eventTitle arrayinfo"><?php echo $row['eventTitle'];?></div>
                                         <div class="eventPrice"><?php echo $row['eventDate'];?></div>
                                         <div><img class="eventImg" src="<?php echo $row["eventImg"];?>"/></div>
-                                        <div class="eventPrice"> From <span class="eventPriceToCart arrayinfo"> <?php echo $row['eventPrice'];?></span> SEK</div>
+                                        <div class="eventPrice"><span class="eventPriceToCart arrayinfo"> <?php echo $row['eventPrice'];?></span> SEK</div>
                                         <button id="buyButton_<?php echo $row['eventId']; ?>" class="buyButton">BUY TICKETS</button>
                                 </section>
                         

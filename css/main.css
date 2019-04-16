@@ -289,6 +289,36 @@ main {
 #json_data {
   display: none; }
 
+#eventAdd {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-orient: vertical !important;
+  -webkit-box-direction: normal !important;
+      -ms-flex-direction: column !important;
+          flex-direction: column !important; }
+
 .hidetext {
   -webkit-text-security: disc;
   /* Default */ }
+
+.ticketModal {
+  margin-top: 7em !important;
+  width: 160% !important;
+  margin-left: -8em !important; }
+
+.orderCon {
+  margin-top: -20em !important; }
+
+.ticketExplainText {
+  text-align: left;
+  margin-left: 1em;
+  margin-top: 0.2em;
+  width: 70%;
+  font-size: 0.8em; }
+
+.validColor {
+  color: green; }
+
+.notValidColor {
+  color: red; }
